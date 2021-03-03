@@ -1,12 +1,12 @@
 Members:
 --
 
-Larry Langman: https://github.com/Larry-Langman
-Rahat Hossan: https://github.com/rahathossan
-Daniel Banifatemi: https://github.com/danikban
-Whitney Danksworth: https://github.com/dwdankworth
-Varun Bhardwaj: https://github.com/vb1262
-Karan Tibriwal: https://github.com/techsupport-2006
+* Larry Langman: https://github.com/Larry-Langman
+* Rahat Hossan: https://github.com/rahathossan
+* Daniel Banifatemi: https://github.com/danikban
+* Whitney Danksworth: https://github.com/dwdankworth
+* Varun Bhardwaj: https://github.com/vb1262
+* Karan Tibriwal: https://github.com/techsupport-2006
 
 About CopyPasta:
 --
@@ -29,6 +29,13 @@ Instructions:
 --
 
 A user has both an android device and an iOS device. The user copies a phone number from the android device, that text data is sent to Firebase Cloud Messaging and updates a queue of all previous copied text. That text can then be pasted on the iOS device. For future iterations, we want to allow for cross OS clipboard functionality within desktop apps for Mac and Windows as well.
+
+How to contribute:
+--
+https://github.com/agile-dev-assignments/project-setup-pinheiro-encompassing/blob/d77dee3949be79b4699821530a5e81067432f783/CONTRIBUTING.md
+
 Links:
+--
+
 https://stackoverflow.com/questions/54728263/react-native-listener-for-change-in-clipboard
 https://altcopy.net/#howto

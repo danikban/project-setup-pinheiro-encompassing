@@ -33,7 +33,7 @@ A user has both an android device and an iOS device. The user copies a phone num
 How to contribute:
 --
 
-* https://github.com/agile-dev-assignments/project-setup-pinheiro-encompassing/blob/d77dee3949be79b4699821530a5e81067432f783/CONTRIBUTING.md
+* https://github.com/agile-dev-assignments/project-setup-pinheiro-encompassing/blob/master/CONTRIBUTING.md
 
 Links:
 --

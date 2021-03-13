@@ -22,6 +22,16 @@
 
 - Dependencies: Firebase, Latest Version of React Native, Node.js, NPM
 
+## Stand-up Meetings
+
+Zoom link: https://nyu.zoom.us/j/99627778288
+
+- Monday 3:15-3:30 EST
+
+- Wednesday 3:15-3:30 EST
+
+- Friday 1:30-1:45 EST
+
 ## Building/Testing Project
 
 - TODO, information will be updated on project completion

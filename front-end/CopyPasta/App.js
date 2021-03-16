@@ -14,7 +14,7 @@ export default function App() {
         sharing. made easy.
       </Text>
       <TextInput
-        placeholder="Put your CopyPasta code here!"
+        placeholder="CopyPasta code here!"
         onChangeText={code => setText(code)}
         defaultValue={code}
       />

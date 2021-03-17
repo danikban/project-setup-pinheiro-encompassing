@@ -6,6 +6,8 @@ import ConnectedDevicesContainer from "./app/ConnectedDevicesContainer";
 import ConnectedDevicesList from "./app/ConnectedDevicesList";
 
 export default function App() {
+  const handlePress = () => console.log({code})
+  const [code, setText] = useState('');
   return (
     <SafeAreaView style={styles.container}>
       <ConnectedDevicesContainer />
@@ -14,10 +16,11 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  containerLogin: {
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+
   },
 });

@@ -1,7 +1,13 @@
 import React from "react";
-import { View, Text, StyleSheet, FlatList } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  FlatList,
+  TouchableOpacity,
+} from "react-native";
 
-const ConnectedDevicesList = () => {
+const ConnectedDevicesList = ({ buttonPress }) => {
   const data = [
     {
       key: "1",
@@ -20,6 +26,9 @@ const ConnectedDevicesList = () => {
   return (
     <View style={styles.container}>
       <FlatList data={data} renderItem={renderItem}></FlatList>
+      <TouchableOpacity style={styles.button} onPress={buttonPress}>
+        <Text style={styles.buttonText}>Exit</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -48,6 +57,15 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 12,
+  },
+  button: {
+    backgroundColor: "#01003b",
+    borderRadius: 10,
+    padding: 10,
+    marginBottom: 20,
+  },
+  buttonText: {
+    color: "#fff",
   },
 });
 

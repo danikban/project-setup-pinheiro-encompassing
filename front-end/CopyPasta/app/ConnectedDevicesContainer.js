@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View } from "react-native";
+import { View, StyleSheet } from "react-native";
 import ConnectedDevicesButton from "./ConnectedDevicesButton";
 import ConnectedDevicesList from "./ConnectedDevicesList";
 
@@ -9,8 +9,18 @@ const ConnectedDevicesContainer = () => {
   return showList ? (
     <ConnectedDevicesList buttonPress={() => setShowList(false)} />
   ) : (
-    <ConnectedDevicesButton onPress={() => setShowList(true)} />
+    <View style={styles.bottom}>
+      <ConnectedDevicesButton onPress={() => setShowList(true)} />
+    </View>
   );
 };
+
+const styles = StyleSheet.create({
+  bottom: {
+    flex: 0.5,
+    justifyContent: "flex-end",
+    marginBottom: 36,
+  },
+});
 
 export default ConnectedDevicesContainer;

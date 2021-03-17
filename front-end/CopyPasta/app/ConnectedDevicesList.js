@@ -10,16 +10,32 @@ import {
 const ConnectedDevicesList = ({ buttonPress }) => {
   const data = [
     {
-      key: "1",
+      key: "0",
       title: "First Item",
     },
     {
-      key: "0",
+      key: "1",
       title: "Second Item",
     },
     {
       key: "2",
       title: "Third Item",
+    },
+    {
+      key: "3",
+      title: "Fourth Item",
+    },
+    {
+      key: "4",
+      title: "Fifth Item",
+    },
+    {
+      key: "5",
+      title: "Sixth Item",
+    },
+    {
+      key: "6",
+      title: "Seventh Item",
     },
   ];
 
@@ -62,7 +78,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#01003b",
     borderRadius: 10,
     padding: 10,
-    marginBottom: 20,
+    marginVertical: 10,
   },
   buttonText: {
     color: "#fff",

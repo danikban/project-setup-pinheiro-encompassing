@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React,{ useState } from 'react';
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
-export default function App() {
+const LoginScreen = () => {
   const handlePress = () => console.log({code})
   const [code, setText] = useState('');
   return (
@@ -44,3 +44,5 @@ const styles = StyleSheet.create({
     fontSize:16,
   },
 });
+
+export default LoginScreen;

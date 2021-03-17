@@ -1,8 +1,6 @@
 import React from "react";
 import { TouchableOpacity, StyleSheet, Text } from "react-native";
 
-const
-
 const ConnectedDevicesButton = () => {
   return (
     <TouchableOpacity style={styles.loginScreenButton}>

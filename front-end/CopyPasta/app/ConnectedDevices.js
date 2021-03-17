@@ -1,10 +1,8 @@
 import React from "react";
-import { Text } from "react-native";
+import { View } from "react-native";
 
-function ConnectedDevices(props) {
-  return <Text>Testing</Text>;
-}
-
-const styles = StyleSheet.create({});
+const ConnectedDevices = () => {
+  return <Text>Hello!</Text>;
+};
 
 export default ConnectedDevices;

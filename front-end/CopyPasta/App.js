@@ -1,13 +1,14 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import ConnectedDevices from "./app/ConnectedDevices";
+import { StyleSheet, Text, SafeAreaView } from "react-native";
+import ConnectedDevicesButton from "./app/ConnectedDevicesButton";
+import ConnectedDevicesList from "./app/ConnectedDevicesList";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <ConnectedDevices />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <ConnectedDevicesButton />
+    </SafeAreaView>
   );
 }
 

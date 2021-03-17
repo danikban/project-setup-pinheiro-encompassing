@@ -4,13 +4,12 @@ import { StyleSheet, Text, SafeAreaView } from "react-native";
 import ConnectedDevicesButton from "./app/ConnectedDevicesButton";
 import ConnectedDevicesContainer from "./app/ConnectedDevicesContainer";
 import ConnectedDevicesList from "./app/ConnectedDevicesList";
+import LoginScreen from "./app/LoginScreen";
 
 export default function App() {
-  const handlePress = () => console.log({code})
-  const [code, setText] = useState('');
   return (
     <SafeAreaView style={styles.container}>
-      <ConnectedDevicesContainer />
+      <LoginScreen />
     </SafeAreaView>
   );
 }

@@ -7,37 +7,48 @@ import {
   TouchableOpacity,
 } from "react-native";
 
+async function getJson(url) {
+  let response = await fetch(url);
+  let data = await response.json();
+  return data;
+}
+
+let vals = await getJson(
+  "https://my.api.mockaroo.com/devicename.json?key=06f36ef0"
+);
+
 const ConnectedDevicesList = ({ buttonPress }) => {
-  const data = [
-    {
-      key: "0",
-      title: "First Item",
-    },
-    {
-      key: "1",
-      title: "Second Item",
-    },
-    {
-      key: "2",
-      title: "Third Item",
-    },
-    {
-      key: "3",
-      title: "Fourth Item",
-    },
-    {
-      key: "4",
-      title: "Fifth Item",
-    },
-    {
-      key: "5",
-      title: "Sixth Item",
-    },
-    {
-      key: "6",
-      title: "Seventh Item",
-    },
-  ];
+  console.log(vals);
+  // const data = [
+  //   {
+  //     key: "0",
+  //     title: "First Item",
+  //   },
+  //   {
+  //     key: "1",
+  //     title: "Second Item",
+  //   },
+  //   {
+  //     key: "2",
+  //     title: "Third Item",
+  //   },
+  //   {
+  //     key: "3",
+  //     title: "Fourth Item",
+  //   },
+  //   {
+  //     key: "4",
+  //     title: "Fifth Item",
+  //   },
+  //   {
+  //     key: "5",
+  //     title: "Sixth Item",
+  //   },
+  //   {
+  //     key: "6",
+  //     title: "Seventh Item",
+  //   },
+  // ];
 
   return (
     <View style={styles.container}>

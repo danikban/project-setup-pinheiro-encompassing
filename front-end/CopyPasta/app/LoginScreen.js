@@ -3,7 +3,7 @@ import React,{ useState } from 'react';
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
 const LoginScreen = () => {
-  const handlePress = () => console.log({code})
+  const handlePress = () => console.log(code)
   const [code, setText] = useState('');
   return (
     <View style={styles.containerLogin}>
@@ -16,7 +16,7 @@ const LoginScreen = () => {
       <TextInput
         placeholder="CopyPasta code here!"
         onChangeText={code => setText(code)}
-        defaultValue={code}
+        defaultValue={LoginScreen.code}
       />
       <Button 
         title= "Login"

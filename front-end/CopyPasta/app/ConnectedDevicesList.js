@@ -35,7 +35,9 @@ const ConnectedDevicesList = ({ buttonPress }) => {
       <FlatList
         data={devices}
         renderItem={renderItem}
-        keyExtractor={(item, index) => item.id}
+        keyExtractor={(item, index) => {
+          return index.toString();
+        }}
       ></FlatList>
       <TouchableOpacity style={styles.button} onPress={buttonPress}>
         <Text style={styles.buttonText}>Exit</Text>
@@ -44,7 +46,7 @@ const ConnectedDevicesList = ({ buttonPress }) => {
   );
 };
 
-const renderItem = ({ key, item }) => <Item title={item.title} />;
+const renderItem = ({ item }) => <Item title={item.title} />;
 
 const Item = ({ title }) => (
   <View style={styles.item}>

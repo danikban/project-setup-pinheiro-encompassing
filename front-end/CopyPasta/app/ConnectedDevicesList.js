@@ -32,7 +32,11 @@ const ConnectedDevicesList = ({ buttonPress }) => {
     </Overlay>
   ) : (
     <Overlay overlayStyle={styles.container}>
-      <FlatList data={devices} renderItem={renderItem}></FlatList>
+      <FlatList
+        data={devices}
+        renderItem={renderItem}
+        keyExtractor={(item, index) => item.id}
+      ></FlatList>
       <TouchableOpacity style={styles.button} onPress={buttonPress}>
         <Text style={styles.buttonText}>Exit</Text>
       </TouchableOpacity>
@@ -40,7 +44,7 @@ const ConnectedDevicesList = ({ buttonPress }) => {
   );
 };
 
-const renderItem = ({ item }) => <Item title={item.title} />;
+const renderItem = ({ key, item }) => <Item title={item.title} />;
 
 const Item = ({ title }) => (
   <View style={styles.item}>

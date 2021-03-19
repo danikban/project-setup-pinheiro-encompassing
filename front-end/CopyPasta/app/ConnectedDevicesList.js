@@ -1,14 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   View,
   Text,
   StyleSheet,
   FlatList,
   TouchableOpacity,
+  Image,
+  ActivityIndicator,
 } from "react-native";
 
+import { Overlay } from "react-native-elements";
+
 const ConnectedDevicesList = ({ buttonPress }) => {
-  let [devices, loadDevices] = React.useState([]);
+  let [devices, loadDevices] = useState([]);
+  let [isLoading, setIsLoading] = useState(true);
   const url = "https://my.api.mockaroo.com/devicename.json?key=06f36ef0";
   let mounted = false;
   useEffect(() => {
@@ -17,16 +22,21 @@ const ConnectedDevicesList = ({ buttonPress }) => {
       .then((json) => {
         loadDevices(json);
         console.log(json);
+        setIsLoading(false);
       });
   }, []);
   console.log(devices);
-  return (
-    <View style={styles.container}>
+  return isLoading ? (
+    <Overlay overlayStyle={styles.container}>
+      <ActivityIndicator size="large" />
+    </Overlay>
+  ) : (
+    <Overlay overlayStyle={styles.container}>
       <FlatList data={devices} renderItem={renderItem}></FlatList>
       <TouchableOpacity style={styles.button} onPress={buttonPress}>
         <Text style={styles.buttonText}>Exit</Text>
       </TouchableOpacity>
-    </View>
+    </Overlay>
   );
 };
 
@@ -34,7 +44,11 @@ const renderItem = ({ item }) => <Item title={item.title} />;
 
 const Item = ({ title }) => (
   <View style={styles.item}>
-    <Text style={styles.title}>{title}</Text>
+    <Image
+      source={require("../assets/smartphone.png")}
+      style={styles.phoneIcon}
+    />
+    <Text style={styles.title}> {title}</Text>
   </View>
 );
 
@@ -45,12 +59,22 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "lightgray",
     width: 300,
+    borderRadius: 10,
+  },
+  phoneIcon: {
+    width: 25,
+    height: 25,
   },
   item: {
+    flex: 1,
+    flexDirection: "row",
     backgroundColor: "white",
     padding: 20,
     marginVertical: 8,
     width: 280,
+    justifyContent: "flex-start",
+    alignItems: "center",
+    borderRadius: 10,
   },
   title: {
     fontSize: 12,

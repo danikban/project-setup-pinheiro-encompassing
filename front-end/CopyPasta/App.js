@@ -10,6 +10,7 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <LoginScreen />
+      <ConnectedDevicesContainer />
     </SafeAreaView>
   );
 }
@@ -20,6 +21,5 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-
   },
 });

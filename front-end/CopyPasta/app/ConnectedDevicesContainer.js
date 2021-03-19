@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, ActivityIndicator } from "react-native";
 import ConnectedDevicesButton from "./ConnectedDevicesButton";
 import ConnectedDevicesList from "./ConnectedDevicesList";
 
@@ -7,7 +7,11 @@ const ConnectedDevicesContainer = () => {
   const [showList, setShowList] = useState(false);
 
   return showList ? (
-    <ConnectedDevicesList buttonPress={() => setShowList(false)} />
+    <ConnectedDevicesList
+      buttonPress={() => {
+        setShowList(false);
+      }}
+    />
   ) : (
     <View style={styles.bottom}>
       <ConnectedDevicesButton onPress={() => setShowList(true)} />

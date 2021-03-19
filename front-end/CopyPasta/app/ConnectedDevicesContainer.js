@@ -7,7 +7,11 @@ const ConnectedDevicesContainer = () => {
   const [showList, setShowList] = useState(false);
 
   return showList ? (
-    <ConnectedDevicesList buttonPress={() => setShowList(false)} />
+    <ConnectedDevicesList
+      buttonPress={() => {
+        setShowList(false);
+      }}
+    />
   ) : (
     <View style={styles.bottom}>
       <ConnectedDevicesButton onPress={() => setShowList(true)} />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   View,
   Text,
@@ -7,52 +7,22 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-async function getJson(url) {
-  let response = await fetch(url);
-  let data = await response.json();
-  return data;
-}
-
-let vals = await getJson(
-  "https://my.api.mockaroo.com/devicename.json?key=06f36ef0"
-);
-
 const ConnectedDevicesList = ({ buttonPress }) => {
-  console.log(vals);
-  // const data = [
-  //   {
-  //     key: "0",
-  //     title: "First Item",
-  //   },
-  //   {
-  //     key: "1",
-  //     title: "Second Item",
-  //   },
-  //   {
-  //     key: "2",
-  //     title: "Third Item",
-  //   },
-  //   {
-  //     key: "3",
-  //     title: "Fourth Item",
-  //   },
-  //   {
-  //     key: "4",
-  //     title: "Fifth Item",
-  //   },
-  //   {
-  //     key: "5",
-  //     title: "Sixth Item",
-  //   },
-  //   {
-  //     key: "6",
-  //     title: "Seventh Item",
-  //   },
-  // ];
-
+  let [devices, loadDevices] = React.useState([]);
+  const url = "https://my.api.mockaroo.com/devicename.json?key=06f36ef0";
+  let mounted = false;
+  useEffect(() => {
+    fetch(url)
+      .then((response) => response.json())
+      .then((json) => {
+        loadDevices(json);
+        console.log(json);
+      });
+  }, []);
+  console.log(devices);
   return (
     <View style={styles.container}>
-      <FlatList data={data} renderItem={renderItem}></FlatList>
+      <FlatList data={devices} renderItem={renderItem}></FlatList>
       <TouchableOpacity style={styles.button} onPress={buttonPress}>
         <Text style={styles.buttonText}>Exit</Text>
       </TouchableOpacity>

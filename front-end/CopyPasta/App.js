@@ -8,13 +8,13 @@ import LoginScreen from "./app/LoginScreen";
 
 export default function App() {
   return (
-    <SafeAreaView style={BaseStyles.container}>
+    <SafeAreaView style={styles.container}>
       <LoginScreen />
     </SafeAreaView>
   );
 }
 
-const BaseStyles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     backgroundColor: "#01003b",
     flex: 1,

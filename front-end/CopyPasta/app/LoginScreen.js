@@ -15,14 +15,14 @@ const LoginScreen = () => {
         sharing. made easy.
       </Text>
       <KeyboardAvoidingView>
-      <TextInput style={styles.textInput}
-        placeholder="CopyPasta code here!"
-        onChangeText={code => setText(code)}
-        defaultValue={LoginScreen.code}
-      />
+        <TextInput style={styles.textInput}
+          placeholder="CopyPasta code here!"
+          onChangeText={code => setText(code)}
+          defaultValue={LoginScreen.code}
+        />
       </KeyboardAvoidingView>
       <View style= {{flex:.2}}/>
-      <TouchableOpacity style={styles.button} onPress={handlePress}>
+      <TouchableOpacity style= {styles.button} onPress={handlePress}>
         <Text style={styles.buttonText}>
           Login
         </Text>
@@ -54,12 +54,12 @@ const styles = StyleSheet.create({
   textInput: {
     textAlign: "center",
     alignSelf: "center",
-    width: 300,
+    width: "300%",
     maxHeight: 100,
     backgroundColor: "#fff",
     color: "#01003b",
     fontSize:26,
-    flex: .75,
+    flex: 1,
     borderRadius: 10,
   },
   button: {

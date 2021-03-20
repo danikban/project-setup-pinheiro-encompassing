@@ -5,11 +5,12 @@ import ConnectedDevicesButton from "./app/ConnectedDevicesButton";
 import ConnectedDevicesContainer from "./app/ConnectedDevicesContainer";
 import ConnectedDevicesList from "./app/ConnectedDevicesList";
 import LoginScreen from "./app/LoginScreen";
+import ClipboardContainer from "./ClipboardContainer";
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <LoginScreen />
+      <ClipboardContainer/>
     </SafeAreaView>
   );
 }

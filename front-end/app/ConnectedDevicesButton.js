@@ -11,12 +11,12 @@ const ConnectedDevicesButton = ({ onPress }) => {
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: "#01003b",
+    backgroundColor: "#fff",
     borderRadius: 10,
     padding: 10,
   },
   buttonText: {
-    color: "#fff",
+    color: "#01003b",
   },
 });
 

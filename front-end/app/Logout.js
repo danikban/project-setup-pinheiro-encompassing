@@ -1,6 +1,5 @@
 import React from 'react';
 import { TouchableOpacity, Text } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
 
 const LogoutButton = ({ onPress }) => {
     return (
@@ -12,7 +11,7 @@ const LogoutButton = ({ onPress }) => {
                 borderColor: 'white',
                 justifyContent: 'end',
                 overflow: 'hidden' }}
-            onPress = {navitation.navigate('LoginScreen')}>
+            onPress = {() => navigation.navigate('LoginScreen')}>
             <Text style = {{ color: 'white', fontSize: 15, alignSelf: 'center' }}> 
                 Logout
             </Text>

@@ -1,13 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
 import React,{ useState } from 'react';
-import { Button, StyleSheet, Text, TextInput, View, SafeAreaView, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
+import { StyleSheet, Text, TextInput, View, SafeAreaView, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 
 const LoginScreen = () => {
   const handlePress = () => console.log(code)
+  const handleGooglePress = () => console.log("Google Signed In")
   const [code, setText] = useState('');
   return (
     <SafeAreaView style={styles.containerLogin}>
-      <View style= {{flex:.25}}/>
+      <View style= {{flex:.1}}/>
       <Text style= {styles.containerHeader}>
         CopyPasta
       </Text>
@@ -27,11 +28,19 @@ const LoginScreen = () => {
           Login
         </Text>
       </TouchableOpacity>
-      <View style= {{flex:.2}}/>
+      <View style= {{flex:.1}}/>
+      <TouchableOpacity style= {styles.button} onPress={handleGooglePress}>
+        <Text style={styles.buttonText}>
+          Google Sign In
+        </Text>
+      </TouchableOpacity>
+      <View style= {{flex:.15}}/>
       <StatusBar style="auto" />
     </SafeAreaView>
   );
 }
+
+
 
 const styles = StyleSheet.create({
   containerLogin: {
@@ -42,7 +51,7 @@ const styles = StyleSheet.create({
     alignItems:"center",
   },
   containerHeader: {
-    flex: .2,
+    flex: .15,
     fontSize:48,
     color: "#fff",
   },

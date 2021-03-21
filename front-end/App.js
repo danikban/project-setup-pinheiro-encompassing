@@ -11,7 +11,7 @@ import ClipboardContainer from "./ClipboardContainer";
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <ClipboardContainer/>
+      <LoginScreen />
     </SafeAreaView>
   );
 }
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#01003b",
     flex: 1,
     alignSelf: "stretch",
-    justifyContent:"center",
-    alignItems:"center",
+    justifyContent: "center",
+    alignItems: "center",
   },
 });

@@ -7,11 +7,13 @@ const LogoutButton = ({ onPress }) => {
                 width: 100,
                 height: 40,
                 borderRadius: 10,
+                padding: 10,
                 backgroundColor: '#01003b',
                 borderColor: 'white',
                 justifyContent: 'end',
                 overflow: 'hidden' }}
-            onPress = {() => navigation.navigate('LoginScreen')}>
+            // Add navigation link here Karan
+            onPress = {onPress} >
             <Text style = {{ color: 'white', fontSize: 15, alignSelf: 'center' }}> 
                 Logout
             </Text>

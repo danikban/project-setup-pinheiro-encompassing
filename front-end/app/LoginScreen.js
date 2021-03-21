@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     maxHeight: 100,
     backgroundColor: "#fff",
     color: "#01003b",
-    fontSize:26,
+    fontSize:24,
     flex: 1,
     borderRadius: 10,
   },

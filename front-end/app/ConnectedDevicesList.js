@@ -1,51 +1,48 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   View,
   Text,
   StyleSheet,
   FlatList,
   TouchableOpacity,
+  Image,
+  ActivityIndicator,
 } from "react-native";
 
-const ConnectedDevicesList = ({ buttonPress }) => {
-  const data = [
-    {
-      key: "0",
-      title: "First Item",
-    },
-    {
-      key: "1",
-      title: "Second Item",
-    },
-    {
-      key: "2",
-      title: "Third Item",
-    },
-    {
-      key: "3",
-      title: "Fourth Item",
-    },
-    {
-      key: "4",
-      title: "Fifth Item",
-    },
-    {
-      key: "5",
-      title: "Sixth Item",
-    },
-    {
-      key: "6",
-      title: "Seventh Item",
-    },
-  ];
+import { Overlay } from "react-native-elements";
 
-  return (
-    <View style={styles.container}>
-      <FlatList data={data} renderItem={renderItem}></FlatList>
+const ConnectedDevicesList = ({ buttonPress }) => {
+  let [devices, loadDevices] = useState([]);
+  let [isLoading, setIsLoading] = useState(true);
+  const url = "https://my.api.mockaroo.com/devicelist.json?key=2d122c20";
+  let mounted = false;
+  useEffect(() => {
+    fetch(url)
+      .then((response) => response.json())
+      .then((json) => {
+        loadDevices(json);
+        console.log(json);
+        setIsLoading(false);
+      });
+  }, []);
+  console.log(devices);
+  return isLoading ? (
+    <Overlay overlayStyle={styles.container}>
+      <ActivityIndicator size="large" />
+    </Overlay>
+  ) : (
+    <Overlay overlayStyle={styles.container}>
+      <FlatList
+        data={devices}
+        renderItem={renderItem}
+        keyExtractor={(item, index) => {
+          return index.toString();
+        }}
+      ></FlatList>
       <TouchableOpacity style={styles.button} onPress={buttonPress}>
         <Text style={styles.buttonText}>Exit</Text>
       </TouchableOpacity>
-    </View>
+    </Overlay>
   );
 };
 
@@ -53,7 +50,11 @@ const renderItem = ({ item }) => <Item title={item.title} />;
 
 const Item = ({ title }) => (
   <View style={styles.item}>
-    <Text style={styles.title}>{title}</Text>
+    <Image
+      source={require("../assets/smartphone.png")}
+      style={styles.phoneIcon}
+    />
+    <Text style={styles.title}> {title}</Text>
   </View>
 );
 
@@ -64,12 +65,22 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "lightgray",
     width: 300,
+    borderRadius: 10,
+  },
+  phoneIcon: {
+    width: 25,
+    height: 25,
   },
   item: {
+    flex: 1,
+    flexDirection: "row",
     backgroundColor: "white",
     padding: 20,
     marginVertical: 8,
     width: 280,
+    justifyContent: "flex-start",
+    alignItems: "center",
+    borderRadius: 10,
   },
   title: {
     fontSize: 12,

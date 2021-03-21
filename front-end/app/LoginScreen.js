@@ -23,13 +23,15 @@ const LoginScreen = () => {
         />
       </KeyboardAvoidingView>
       <View style= {{flex:.2}}/>
-      <TouchableOpacity style= {styles.button} onPress={handlePress}>
+      <TouchableOpacity style= {styles.button} 
+        onPress={handlePress}>
         <Text style={styles.buttonText}>
           Login
         </Text>
       </TouchableOpacity>
       <View style= {{flex:.1}}/>
-      <TouchableOpacity style= {styles.button} onPress={handleGooglePress}>
+      <TouchableOpacity style= {styles.button} 
+        onPress={handleGooglePress}>
         <Text style={styles.buttonText}>
           Google Sign In
         </Text>

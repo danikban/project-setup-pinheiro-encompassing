@@ -2,17 +2,24 @@ import React, { useEffect, useState } from "react";
 import {
   StyleSheet,
   Text,
-  View,
   FlatList,
   ActivityIndicator,
+  TouchableOpacity,
+  Clipboard,
 } from "react-native";
 
-const Item = ({ date, content }) => (
-  <View style={styles.item}>
-    <Text style={styles.date}>{date}</Text>
-    <Text style={styles.clipboardContent}>{content}</Text>
-  </View>
-);
+const Item = ({ date, content }) => {
+  const writeToClipboard = async () => {
+    await Clipboard.setString(content);
+    alert("Copied to Clipboard!");
+  };
+  return (
+    <TouchableOpacity style={styles.item} onPress={writeToClipboard}>
+      <Text style={styles.date}>{date}</Text>
+      <Text style={styles.clipboardContent}>{content}</Text>
+    </TouchableOpacity>
+  );
+};
 
 const ClipboardList = () => {
   const url = "https://my.api.mockaroo.com/clipboardcontent.json?key=a7c3ef30";

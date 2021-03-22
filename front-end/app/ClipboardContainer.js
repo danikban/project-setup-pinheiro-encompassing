@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
   },
   header: {
     flex: 0.18,
+    marginBottom: 10,
   },
   headerText: {
     backgroundColor: "#01003b",

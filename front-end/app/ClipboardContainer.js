@@ -20,7 +20,7 @@ const ClipboardContainer = (onPress) => {
         <ClipboardList />
         <View style={styles.userInfo}>
           <Text style={styles.containerDetailText}>
-            Rahat Hossan User: #42-34141
+            Rahat Hossan User: #42-314159
           </Text>
         </View>
       </View>

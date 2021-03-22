@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, Text } from 'react-native';
+import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 
 const LogoutButton = ({ onPress }) => {
     return (
@@ -20,12 +20,12 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         padding: 10,
         backgroundColor: 'white',
-        justifyContent: 'Center',
+        justifyContent: 'center',
         alignSelf: 'center',
         overflow: 'hidden',
     },
     text: {
-        color: 'white',
+        color: '#01003b',
         fontSize: 15,
         alignSelf: 'center' ,
     },

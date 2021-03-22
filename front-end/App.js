@@ -1,9 +1,8 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { Text, SafeAreaView, StyleSheet } from "react-native";
-
 import ConnectedDevicesContainer from "./app/ConnectedDevicesContainer";
-import LoginScreen from "./app/LoginScreen";
+import Login from "./app/LoginScreen";
 import ClipboardContainer from "./app/ClipboardContainer";
 
 export default function App() {

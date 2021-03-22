@@ -14,7 +14,7 @@ export default function App() {
     </SafeAreaView>
   ) : (
     <SafeAreaView style={styles.container}>
-      <LoginScreen />
+      <LoginScreen onPress={() => setVisible(true)} />
     </SafeAreaView>
   );
 }

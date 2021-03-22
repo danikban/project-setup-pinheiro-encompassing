@@ -10,9 +10,7 @@ import {
   KeyboardAvoidingView,
 } from "react-native";
 
-const LoginScreen = () => {
-  const handlePress = () => console.log(code);
-  const handleGooglePress = () => console.log("Google Signed In");
+const LoginScreen = (onPress) => {
   const [code, setText] = useState("");
   return (
     <SafeAreaView style={styles.containerLogin}>
@@ -28,11 +26,11 @@ const LoginScreen = () => {
         />
       </KeyboardAvoidingView>
       <View style={{ flex: 0.2 }} />
-      <TouchableOpacity style={styles.button} onPress={handlePress}>
+      <TouchableOpacity style={styles.button} onPress={onPress.onPress}>
         <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
       <View style={{ flex: 0.1 }} />
-      <TouchableOpacity style={styles.button} onPress={handleGooglePress}>
+      <TouchableOpacity style={styles.button} onPress={onPress.onPress}>
         <Text style={styles.buttonText}>Google Sign In</Text>
       </TouchableOpacity>
       <View style={{ flex: 0.15 }} />

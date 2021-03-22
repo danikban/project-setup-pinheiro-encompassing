@@ -2,10 +2,9 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { Text, SafeAreaView, StyleSheet } from "react-native";
 
-import ConnectedDevicesButton from "./app/ConnectedDevicesButton";
 import ConnectedDevicesContainer from "./app/ConnectedDevicesContainer";
-import ConnectedDevicesList from "./app/ConnectedDevicesList";
 import LoginScreen from "./app/LoginScreen";
+import ClipboardContainer from "./app/ClipboardContainer";
 
 export default function App() {
   return (
@@ -20,7 +19,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#01003b",
     flex: 1,
     alignSelf: "stretch",
-    justifyContent:"center",
-    alignItems:"center",
+    justifyContent: "center",
+    alignItems: "center",
   },
 });

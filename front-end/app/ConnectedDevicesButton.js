@@ -3,7 +3,7 @@ import { TouchableOpacity, StyleSheet, Text } from "react-native";
 
 const ConnectedDevicesButton = ({ onPress }) => {
   return (
-    <TouchableOpacity style={styles.button} onPress={onPress}>
+    <TouchableOpacity style={styles.button} onPress={onPress.logoutPress}>
       <Text style={styles.buttonText}>View Connected Devices</Text>
     </TouchableOpacity>
   );

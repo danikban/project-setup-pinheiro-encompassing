@@ -1,14 +1,20 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
+import React, { useState } from "react";
 import { Text, SafeAreaView, StyleSheet } from "react-native";
 import ConnectedDevicesContainer from "./app/ConnectedDevicesContainer";
 import Login from "./app/LoginScreen";
 import ClipboardContainer from "./app/ClipboardContainer";
+import LoginScreen from "./app/LoginScreen";
 
 export default function App() {
-  return (
+  let [visible, setVisible] = useState(true);
+  return visible ? (
     <SafeAreaView style={styles.container}>
-      <ClipboardContainer />
+      <ClipboardContainer onPress={() => setVisible(false)} />
+    </SafeAreaView>
+  ) : (
+    <SafeAreaView style={styles.container}>
+      <LoginScreen />
     </SafeAreaView>
   );
 }

@@ -3,6 +3,7 @@ import { SafeAreaView } from "react-native";
 import { View, StyleSheet, Text } from "react-native";
 import ClipboardList from "./ClipboardList";
 import ConnectedDevicesContainer from "./ConnectedDevicesContainer";
+import LogoutButton from "./Logout";
 
 const ClipboardContainer = () => {
   return (
@@ -19,11 +20,12 @@ const ClipboardContainer = () => {
         <ClipboardList />
         <View style={styles.userInfo}>
           <Text style={styles.containerDetailText}>
-            Larry Langman User: #42-34141
+            Rahat Hossan User: #42-34141
           </Text>
         </View>
       </View>
       <ConnectedDevicesContainer />
+      <LogoutButton />
     </SafeAreaView>
   );
 };

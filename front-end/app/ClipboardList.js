@@ -15,7 +15,7 @@ const Item = ({ date, content }) => (
 );
 
 const ClipboardList = () => {
-  const url = "https://my.api.mockaroo.com/clipboardcontent.json?key=06f36ef0";
+  const url = "https://my.api.mockaroo.com/clipboardcontent.json?key=a7c3ef30";
   let [data, loadData] = useState([]);
   let [isLoading, setIsLoading] = useState(true);
 
@@ -39,6 +39,9 @@ const ClipboardList = () => {
       data={data}
       renderItem={renderItem}
       style={styles.list}
+      keyExtractor={(item, index) => {
+        return index.toString();
+      }}
     ></FlatList>
   );
 };
@@ -50,6 +53,7 @@ const styles = StyleSheet.create({
     marginVertical: 8,
     marginHorizontal: 16,
     borderRadius: 10,
+    minWidth: "85%",
   },
   date: {
     fontSize: 12,

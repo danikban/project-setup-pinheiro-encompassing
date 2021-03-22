@@ -1,5 +1,9 @@
 import React from 'react';
+<<<<<<< HEAD
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+=======
+import { StyleSheet, TouchableOpacity, Text } from 'react-native';
+>>>>>>> b2b099b592abdc3a499e3aab885a601337882506
 
 const LogoutButton = ({ onPress }) => {
     return (

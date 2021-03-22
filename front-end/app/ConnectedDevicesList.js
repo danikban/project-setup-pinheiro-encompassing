@@ -14,7 +14,7 @@ import { Overlay } from "react-native-elements";
 const ConnectedDevicesList = ({ buttonPress }) => {
   let [devices, loadDevices] = useState([]);
   let [isLoading, setIsLoading] = useState(true);
-  const url = "https://my.api.mockaroo.com/devicelist.json?key=2d122c20";
+  const url = "https://my.api.mockaroo.com/devicename.json?key=06f36ef0";
   let mounted = false;
   useEffect(() => {
     fetch(url)

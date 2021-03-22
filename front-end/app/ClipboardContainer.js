@@ -5,7 +5,7 @@ import ClipboardList from "./ClipboardList";
 import ConnectedDevicesContainer from "./ConnectedDevicesContainer";
 import LogoutButton from "./Logout";
 
-const ClipboardContainer = () => {
+const ClipboardContainer = (onPress) => {
   return (
     <SafeAreaView>
       <View style={styles.header}>
@@ -25,7 +25,7 @@ const ClipboardContainer = () => {
         </View>
       </View>
       <ConnectedDevicesContainer />
-      <LogoutButton />
+      <LogoutButton onPress={onPress} />
     </SafeAreaView>
   );
 };

@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
         padding: 10,
         backgroundColor: 'white',
         justifyContent: 'Center',
+        alignSelf: 'center',
         overflow: 'hidden',
     },
     text: {

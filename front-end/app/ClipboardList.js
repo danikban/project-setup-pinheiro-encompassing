@@ -6,6 +6,7 @@ import {
   ActivityIndicator,
   TouchableOpacity,
   Clipboard,
+  RefreshControl,
 } from "react-native";
 
 const Item = ({ date, content }) => {
@@ -22,9 +23,20 @@ const Item = ({ date, content }) => {
 };
 
 const ClipboardList = () => {
-  const url = "https://my.api.mockaroo.com/clipboardcontent.json?key=a7c3ef30";
+  let url = "https://my.api.mockaroo.com/clipboardcontent.json?key=a7c3ef30";
   let [data, loadData] = useState([]);
   let [isLoading, setIsLoading] = useState(true);
+  let [refreshing, setRefreshing] = React.useState(false);
+
+  const onRefresh = () => {
+    setIsLoading(true);
+    fetch(url)
+      .then((response) => response.json())
+      .then((json) => {
+        loadData(json);
+        setIsLoading(false);
+      });
+  };
 
   const renderItem = ({ item }) => (
     <Item date={item.date} content={item.content} />
@@ -46,6 +58,9 @@ const ClipboardList = () => {
       data={data}
       renderItem={renderItem}
       style={styles.list}
+      refreshControl={
+        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+      }
       keyExtractor={(item, index) => {
         return index.toString();
       }}

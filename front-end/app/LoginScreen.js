@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   textInput: {
     textAlign: "center",
     alignSelf: "center",
-    width: "300%",
+    width: 300,
     maxHeight: 100,
     backgroundColor: "#fff",
     color: "#01003b",

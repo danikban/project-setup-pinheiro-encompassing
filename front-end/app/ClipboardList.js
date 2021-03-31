@@ -53,7 +53,6 @@ const ClipboardList = () => {
           onChangeText={(TextBox) => setText(TextBox)}
           defaultValue={ClipboardList.TextBox}
           clearButtonMode="always"
-          multiline={true}
         ></TextInput>
         <TouchableOpacity style={styles.button}>
           <Text style={styles.buttonText}>Add To CopyPasta</Text>

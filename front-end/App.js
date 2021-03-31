@@ -8,6 +8,12 @@ import LoginScreen from "./app/LoginScreen";
 
 export default function App() {
   let [visible, setVisible] = useState(true);
+  // return(
+  //   <SafeAreaView style={styles.container}>
+  //     <ClipboardContainer />
+  //   </SafeAreaView>
+  // )
+  
   return visible ? (
     <SafeAreaView style={styles.container}>
       <ClipboardContainer onPress={() => setVisible(false)} />

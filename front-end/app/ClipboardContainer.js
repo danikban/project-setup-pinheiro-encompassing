@@ -5,6 +5,9 @@ import ClipboardList from "./ClipboardList";
 import ConnectedDevicesContainer from "./ConnectedDevicesContainer";
 import LogoutButton from "./Logout";
 
+const user = "Rahat Hossan";
+const UID = "42-314159";
+
 const ClipboardContainer = (onPress) => {
   return (
     <SafeAreaView>
@@ -17,12 +20,20 @@ const ClipboardContainer = (onPress) => {
         </View>
       </View>
       <View style={styles.listContainer}>
-        <ClipboardList />
         <View style={styles.userInfo}>
+          <View >
+            <Text style={styles.containerDetailText}>
+              Welcome, {user}!
+            </Text>
+          </View>
+          <View>
           <Text style={styles.containerDetailText}>
-            Rahat Hossan User: #42-314159
-          </Text>
+              UID: #{UID}
+            </Text>
+          </View>
         </View>
+        <ClipboardList />
+        
       </View>
       <ConnectedDevicesContainer />
       <LogoutButton onPress={onPress} />

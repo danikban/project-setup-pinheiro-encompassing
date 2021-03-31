@@ -19,24 +19,37 @@ const ClipboardContainer = (onPress) => {
           <Text style={styles.containerSubHeaderText}>sharing. made easy.</Text>
         </View>
       </View>
+      <View
+        style={{
+          flex: .04,
+          borderBottomColor: 'white',
+          borderBottomWidth: 1,
+        }}
+      />
       <View style={styles.listContainer}>
         <View style={styles.userInfo}>
-          <View >
+          <View 
+            style={{
+              flex:.5
+            }}>
             <Text style={styles.containerDetailText}>
               Welcome, {user}!
             </Text>
           </View>
-          <View>
-          <Text style={styles.containerDetailText}>
+          <View 
+            style={{
+              flex:.3
+            }}>
+            <Text style={styles.containerDetailText}>
               UID: #{UID}
             </Text>
           </View>
         </View>
         <ClipboardList />
-        
       </View>
       <ConnectedDevicesContainer />
-      <LogoutButton onPress={onPress} />
+      <LogoutButton onPress={onPress}/>
+      <View style={{ flex: 0.05}} />
     </SafeAreaView>
   );
 };
@@ -65,12 +78,14 @@ const styles = StyleSheet.create({
     color: "#fff",
   },
   containerDetailText: {
-    fontSize: 10,
+    fontSize: 14,
     color: "lightgray",
   },
   userInfo: {
     marginTop: 20,
     alignItems: "center",
+    justifyContent: "center",
+    flexDirection: 'row',
   },
 });
 

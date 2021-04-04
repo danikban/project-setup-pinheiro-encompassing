@@ -45,27 +45,27 @@ const ClipboardList = () => {
   return isLoading ? (
     <ActivityIndicator size="large" />
   ) : (
-      <SafeAreaView>
-        <TextInput
-          autoCorrect={false}
-          style={styles.item}
-          placeholder="An empty text box, for spontaneous CopyPastas"
-          onChangeText={(TextBox) => setText(TextBox)}
-          defaultValue={ClipboardList.TextBox}
-          clearButtonMode="always"
-        ></TextInput>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Add To CopyPasta</Text>
-        </TouchableOpacity>
-        <FlatList
-          data={data}
-          renderItem={renderItem}
-          style={styles.list}
-          keyExtractor={(item, index) => {
-            return index.toString();
-          }}
-        ></FlatList>
-      </SafeAreaView>
+    <SafeAreaView style={{ flex: 1 }}>
+      <TextInput
+        autoCorrect={false}
+        style={styles.item}
+        placeholder="An empty text box, for spontaneous CopyPastas"
+        onChangeText={(TextBox) => setText(TextBox)}
+        defaultValue={ClipboardList.TextBox}
+        clearButtonMode="always"
+      ></TextInput>
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>Add To CopyPasta</Text>
+      </TouchableOpacity>
+      <FlatList
+        data={data}
+        renderItem={renderItem}
+        style={styles.list}
+        keyExtractor={(item, index) => {
+          return index.toString();
+        }}
+      ></FlatList>
+    </SafeAreaView>
   );
 };
 

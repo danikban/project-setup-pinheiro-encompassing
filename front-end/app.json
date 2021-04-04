@@ -21,7 +21,7 @@
       "bundleIdentifier": "copypasta.ios.auth",
       "config": {
         "googleSignIn": {
-          "reservedClientId": "com.googleusercontent.apps.1051643207020-3j556upgqdir7f44kenlrot3oq2hl58f>"
+          "reversedClientId": "com.googleusercontent.apps.1051643207020-3j556upgqdir7f44kenlrot3oq2hl58f>"
         }
       },
       "googleServicesFile": "./GoogleService-Info.plist"

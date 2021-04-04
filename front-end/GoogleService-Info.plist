@@ -3,23 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>978388863015-4h47p1bsiaim8kktofqk9ssual0as82q.apps.googleusercontent.com</string>
+	<string>1051643207020-3j556upgqdir7f44kenlrot3oq2hl58f.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.978388863015-4h47p1bsiaim8kktofqk9ssual0as82q</string>
-	<key>ANDROID_CLIENT_ID</key>
-	<string>978388863015-hi167o41cme3livr3vdgkoa2e4t46fia.apps.googleusercontent.com</string>
+	<string>com.googleusercontent.apps.1051643207020-3j556upgqdir7f44kenlrot3oq2hl58f</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBakX78NNrhGibFH3nCMI1T8YEM0B70i8I</string>
+	<string>AIzaSyD-f2TsdCOOndO452zb_SnIUYmq7DD7fuc</string>
 	<key>GCM_SENDER_ID</key>
-	<string>978388863015</string>
+	<string>1051643207020</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.copypasta.copypasta</string>
+	<string>copypasta.ios.auth</string>
 	<key>PROJECT_ID</key>
-	<string>copypasta-24032</string>
+	<string>my-app-7ea7b</string>
 	<key>STORAGE_BUCKET</key>
-	<string>copypasta-24032.appspot.com</string>
+	<string>my-app-7ea7b.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -31,8 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:978388863015:ios:14d57dea1625fdde476602</string>
-	<key>DATABASE_URL</key>
-	<string>https://copypasta-24032-default-rtdb.firebaseio.com</string>
+	<string>1:1051643207020:ios:76a3c3a2389de85c872749</string>
 </dict>
 </plist>

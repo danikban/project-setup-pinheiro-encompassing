@@ -1,10 +1,9 @@
 export const firebaseConfig = {
-    apiKey: "AIzaSyAOY9cdIUmIQdk2sahwqMmAPnyI--snx_M",
-    authDomain: "copypasta-24032.firebaseapp.com",
-    databaseURL: 'https://copypasta-24032-default-rtdb.firebaseio.com',
-    projectId: "copypasta-24032",
-    storageBucket: "copypasta-24032.appspot.com",
-    messagingSenderId: "978388863015",
-    appId: "1:978388863015:web:de02c8c29f4b33a8476602",
-    measurementId: "G-DCMJTPFV1S"
-  };
+    apiKey: "AIzaSyBZzjergV-8K1yG_cMqpsHyhQeN2ddcP2I",
+    authDomain: "my-app-7ea7b.firebaseapp.com",
+    projectId: "my-app-7ea7b",
+    storageBucket: "my-app-7ea7b.appspot.com",
+    messagingSenderId: "1051643207020",
+    appId: "1:1051643207020:web:ea353f27cae5e857872749",
+    measurementId: "G-S5Q3ESW5FW"
+};

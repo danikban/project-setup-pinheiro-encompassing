@@ -58,56 +58,55 @@ const LoginScreen = ({ navigation }) => {
           googleUser.idToken,
           googleUser.accessToken
         )
-
         // Sign in with credential from the Google user.
-        firebase.auth().signInWithCredential(credential).then(function (result) {
+      firebase.auth().signInWithCredential(credential).then(function (result) {
 
-            console.log("User Signed In");
+        console.log("User Signed In");
 
-            const check = result.additionalUserInfo.isNewUser
-            //console.log(result.user.given_name  result.user.last);
-            const name = result.additionalUserInfo.profile.name;
-            console.log(name);
-            
-            storeData(name);
-            
-            if(check){
-            const uid = result.user.uid;
-            const mail = result.user.email;
-            const first = result.additionalUserInfo.profile.given_name;
-            const last = result.additionalUserInfo.profile.family_name;
-            //const picture = result.additionalUserInfo.photoUrl;
-            //const locale = result.additionalUserInfo.locale;
+        const check = result.additionalUserInfo.isNewUser
+        //console.log(result.user.given_name  result.user.last);
+        const name = result.additionalUserInfo.profile.name;
+        console.log(name);
+        
+        storeData(name);
+        
+        if(check){
+        const uid = result.user.uid;
+        const mail = result.user.email;
+        const first = result.additionalUserInfo.profile.given_name;
+        const last = result.additionalUserInfo.profile.family_name;
+        //const picture = result.additionalUserInfo.photoUrl;
+        //const locale = result.additionalUserInfo.locale;
 
-            firebase
-              .database()
-              .ref('/users/' + uid)
-              .set({
-                gmail: mail,
-                //profile_picture: picture,
-                first_name: first,
-                last_name: last,
-                created_at : Date.now()
-              })
-            } else {
-              firebase
-              .database()
-              .ref('/users/' + uid)
-              .update({
-                last_logged_in : Date.now()
-              })
-            }
+        firebase
+          .database()
+          .ref('/users/' + uid)
+          .set({
+            gmail: mail,
+            //profile_picture: picture,
+            first_name: first,
+            last_name: last,
+            created_at : Date.now()
           })
-          .catch((error) => {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            // The email of the user's account used.
-            var email = error.email;
-            // The firebase.auth.AuthCredential type that was used.
-            var credential = error.credential;
-            // ...
-          });
+        } else {
+          firebase
+          .database()
+          .ref('/users/' + uid)
+          .update({
+            last_logged_in : Date.now()
+          })
+        }
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // The email of the user's account used.
+        var email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        var credential = error.credential;
+        // ...
+      });
       } else {
         console.log('User already signed-in Firebase.');
       }

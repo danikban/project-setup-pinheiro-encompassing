@@ -46,10 +46,10 @@ function App() {
                         headerShown: false,
                     }} />
 
-                {/* <Stack.Screen name="Logout"
+                { <Stack.Screen name="Logout"
                     component={Logout} options={{
                         headerShown: false,
-                    }} />     */}
+                    }} />     }
             </Stack.Navigator>
         </NavigationContainer>
     );

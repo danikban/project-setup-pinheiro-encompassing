@@ -15,7 +15,7 @@ const ConnectedDevicesList = ({ buttonPress }) => {
   let [devices, loadDevices] = useState([]);
   let [isLoading, setIsLoading] = useState(true);
   const url = "https://my.api.mockaroo.com/connecteddevices.json?key=a7c3ef30";
-  let mounted = false;
+
   useEffect(() => {
     fetch(url)
       .then((response) => response.json())

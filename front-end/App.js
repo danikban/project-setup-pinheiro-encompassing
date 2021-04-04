@@ -1,4 +1,4 @@
-import 'react-native-gesture-handler';
+import "react-native-gesture-handler";
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import { Text, SafeAreaView, StyleSheet } from "react-native";
@@ -6,14 +6,13 @@ import ConnectedDevicesContainer from "./app/ConnectedDevicesContainer";
 import Login from "./app/LoginScreen";
 import ClipboardContainer from "./app/ClipboardContainer";
 import LoginScreen from "./app/LoginScreen";
-import Navigation from './app/Navigation';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import * as firebase from 'firebase';
-import db from './app/firebase.config.js';
+import Navigation from "./app/Navigation";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import * as firebase from "firebase";
+import db from "./app/firebase.config.js";
 
-import { firebaseConfig } from './config';
+import { firebaseConfig } from "./config";
 //firebase.initializeApp(firebaseConfig);
-
 
 //export default function App() {
 //   let [visible, setVisible] = useState(true);
@@ -35,7 +34,6 @@ export default function App() {
     </SafeAreaProvider>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {

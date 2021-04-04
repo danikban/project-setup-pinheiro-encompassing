@@ -1,33 +1,34 @@
-import React , {useState , useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { SafeAreaView } from "react-native";
 import { View, StyleSheet, Text } from "react-native";
 import ClipboardList from "./ClipboardList";
 import ConnectedDevicesContainer from "./ConnectedDevicesContainer";
 import LogoutButton from "./Logout";
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-
-const ClipboardContainer = ({navigation}) => {
-  const[nameValue , setNameValue] = useState("");
+const ClipboardContainer = ({ navigation }) => {
+  const [nameValue, setNameValue] = useState("");
+  const user = "Rahat Hossan";
+  const UID = "42-314159";
 
   useEffect(() => {
-    getData()
-  })
+    getData();
+  });
 
-  async function getData(){
-  try {
-    const value = await AsyncStorage.getItem('@storage_Key')
-    if(value !== null) {
-      setNameValue(value);
-      console.log(value);
+  async function getData() {
+    try {
+      const value = await AsyncStorage.getItem("@storage_Key");
+      if (value !== null) {
+        setNameValue(value);
+        console.log(value);
+      }
+    } catch (e) {
+      // error reading value
     }
-  } catch(e) {
-    // error reading value
   }
-}
 
   return (
-    <SafeAreaView style = {styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <View style={styles.headerText}>
           <Text style={styles.containerHeaderText}>CopyPasta</Text>
@@ -36,16 +37,35 @@ const ClipboardContainer = ({navigation}) => {
           <Text style={styles.containerSubHeaderText}>sharing. made easy.</Text>
         </View>
       </View>
+      <View
+        style={{
+          flex: 0.04,
+          borderBottomColor: "white",
+          borderBottomWidth: 1,
+        }}
+      />
       <View style={styles.listContainer}>
-        <ClipboardList />
         <View style={styles.userInfo}>
-          <Text style={styles.containerDetailText}>
-            {nameValue} User: #42-314159
-          </Text>
+          <View
+            style={{
+              flex: 0.5,
+            }}
+          >
+            <Text style={styles.containerDetailText}>Welcome, {user}!</Text>
+          </View>
+          <View
+            style={{
+              flex: 0.3,
+            }}
+          >
+            <Text style={styles.containerDetailText}>UID: #{UID}</Text>
+          </View>
         </View>
+        <ClipboardList />
       </View>
       <ConnectedDevicesContainer />
       <LogoutButton />
+      <View style={{ flex: 0.05 }} />
     </SafeAreaView>
   );
 };
@@ -57,7 +77,7 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
     justifyContent: "center",
     alignItems: "center",
-},
+  },
   listContainer: {
     flex: 1,
   },
@@ -81,12 +101,14 @@ const styles = StyleSheet.create({
     color: "#fff",
   },
   containerDetailText: {
-    fontSize: 10,
+    fontSize: 14,
     color: "lightgray",
   },
   userInfo: {
     marginTop: 20,
     alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "row",
   },
 });
 

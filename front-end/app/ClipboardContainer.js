@@ -25,51 +25,49 @@ const ClipboardContainer = ({ navigation }) => {
     } catch (e) {
       // error reading value
     }
-
-    return (
-      <SafeAreaView style={styles.container}>
-        <View style={styles.header}>
-          <View style={styles.headerText}>
-            <Text style={styles.containerHeaderText}>CopyPasta</Text>
-          </View>
-          <View style={styles.headerText}>
-            <Text style={styles.containerSubHeaderText}>
-              sharing. made easy.
-            </Text>
-          </View>
-        </View>
-        <View
-          style={{
-            flex: 0.04,
-            borderBottomColor: "white",
-            borderBottomWidth: 1,
-          }}
-        />
-        <View style={styles.listContainer}>
-          <View style={styles.userInfo}>
-            <View
-              style={{
-                flex: 0.5,
-              }}
-            >
-              <Text style={styles.containerDetailText}>Welcome, {user}!</Text>
-            </View>
-            <View
-              style={{
-                flex: 0.3,
-              }}
-            >
-              <Text style={styles.containerDetailText}>UID: #{UID}</Text>
-            </View>
-          </View>
-          <ClipboardList />
-        </View>
-        <ConnectedDevicesContainer />
-        <LogoutButton />
-        <View style={{ flex: 0.05 }} />
-      </SafeAreaView>
-    );
   }
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <View style={styles.header}>
+        <View style={styles.headerText}>
+          <Text style={styles.containerHeaderText}>CopyPasta</Text>
+        </View>
+        <View style={styles.headerText}>
+          <Text style={styles.containerSubHeaderText}>sharing. made easy.</Text>
+        </View>
+      </View>
+      <View
+        style={{
+          flex: 0.04,
+          borderBottomColor: "white",
+          borderBottomWidth: 1,
+        }}
+      />
+      <View style={styles.listContainer}>
+        <View style={styles.userInfo}>
+          <View
+            style={{
+              flex: 0.5,
+            }}
+          >
+            <Text style={styles.containerDetailText}>Welcome, {user}!</Text>
+          </View>
+          <View
+            style={{
+              flex: 0.3,
+            }}
+          >
+            <Text style={styles.containerDetailText}>UID: #{UID}</Text>
+          </View>
+        </View>
+        <ClipboardList />
+      </View>
+      <ConnectedDevicesContainer />
+      <LogoutButton />
+      <View style={{ flex: 0.05 }} />
+    </SafeAreaView>
+  );
 };
 
 const styles = StyleSheet.create({

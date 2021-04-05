@@ -31,6 +31,8 @@ const ClipboardList = () => {
   let [data, loadData] = useState([]);
   let [isLoading, setIsLoading] = useState(true);
 
+  const [blogs, setBlogs] = useState([]);
+
   const temp = [];
 
   const fetchBlogs = async () => {

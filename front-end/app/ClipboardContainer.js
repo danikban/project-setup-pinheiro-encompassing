@@ -105,6 +105,7 @@ const styles = StyleSheet.create({
     color: "lightgray",
   },
   userInfo: {
+    width: "100%",
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "row",

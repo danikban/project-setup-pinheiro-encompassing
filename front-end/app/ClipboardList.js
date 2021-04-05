@@ -52,11 +52,11 @@ const ClipboardList = () => {
       console.log(temp);
       loadData(temp);
     });
+    setIsLoading(false);
   };
 
   useEffect(() => {
     fetchBlogs();
-    setIsLoading(false);
   }, []);
 
   console.log(blogs);

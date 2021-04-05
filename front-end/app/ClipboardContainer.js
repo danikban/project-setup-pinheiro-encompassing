@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { SafeAreaView } from "react-native";
-import { View, StyleSheet, Text } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+} from "react-native";
 import ClipboardList from "./ClipboardList";
 import ConnectedDevicesContainer from "./ConnectedDevicesContainer";
 import LogoutButton from "./Logout";
@@ -61,6 +67,17 @@ const ClipboardContainer = ({ navigation }) => {
             <Text style={styles.containerDetailText}>UID: #{UID}</Text>
           </View>
         </View>
+        <TextInput
+          autoCorrect={false}
+          style={styles.item}
+          placeholder="An empty text box, for spontaneous CopyPastas"
+          onChangeText={(TextBox) => setText(TextBox)}
+          defaultValue={ClipboardList.TextBox}
+          clearButtonMode="always"
+        ></TextInput>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}>Add To CopyPasta</Text>
+        </TouchableOpacity>
         <ClipboardList />
       </View>
       <ConnectedDevicesContainer />
@@ -109,6 +126,26 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "row",
+  },
+  item: {
+    backgroundColor: "#fff",
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
+    borderRadius: 10,
+    minWidth: "85%",
+  },
+  button: {
+    backgroundColor: "#fff",
+    borderRadius: 10,
+    padding: 10,
+    justifyContent: "center",
+    alignItems: "center",
+    marginHorizontal: 70,
+  },
+  buttonText: {
+    color: "#01003b",
+    fontSize: 16,
   },
 });
 

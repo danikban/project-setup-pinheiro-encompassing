@@ -37,13 +37,13 @@ const ClipboardContainer = ({ navigation }) => {
           <Text style={styles.containerSubHeaderText}>sharing. made easy.</Text>
         </View>
       </View>
-      <View
+      {/* <View
         style={{
           flex: 0.04,
           borderBottomColor: "white",
           borderBottomWidth: 1,
         }}
-      />
+      /> */}
       <View style={styles.listContainer}>
         <View style={styles.userInfo}>
           <View

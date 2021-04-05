@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import db from "./firebase.config.js";
 
 import Moment from "moment";
-import firebase from "firebase";
 
 import {
   StyleSheet,
@@ -11,7 +10,6 @@ import {
   ActivityIndicator,
   TouchableOpacity,
   Clipboard,
-  TextInput,
   SafeAreaView,
   RefreshControl,
 } from "react-native";
@@ -30,11 +28,8 @@ const Item = ({ date, content }) => {
 };
 
 const ClipboardList = () => {
-  let url = "https://my.api.mockaroo.com/clipboardcontent.json?key=a7c3ef30";
   let [data, loadData] = useState([]);
   let [isLoading, setIsLoading] = useState(true);
-  const [TextBox, setText] = useState("");
-  let [refreshing, setRefreshing] = React.useState(false);
 
   const [blogs, setBlogs] = useState([]);
 
@@ -52,11 +47,11 @@ const ClipboardList = () => {
       console.log(temp);
       loadData(temp);
     });
+    setIsLoading(false);
   };
 
   useEffect(() => {
     fetchBlogs();
-    setIsLoading(false);
   }, []);
 
   console.log(blogs);
@@ -88,20 +83,9 @@ const ClipboardList = () => {
   // }, []);
 
   return isLoading ? (
-    <ActivityIndicator size="large" />
+    <ActivityIndicator size="large" style={{ flex: 0.5 }} />
   ) : (
     <SafeAreaView style={{ flex: 1 }}>
-      <TextInput
-        autoCorrect={false}
-        style={styles.item}
-        placeholder="An empty text box, for spontaneous CopyPastas"
-        onChangeText={(TextBox) => setText(TextBox)}
-        defaultValue={ClipboardList.TextBox}
-        clearButtonMode="always"
-      ></TextInput>
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Add To CopyPasta</Text>
-      </TouchableOpacity>
       <FlatList
         data={data}
         renderItem={renderItem}
@@ -130,7 +114,7 @@ const styles = StyleSheet.create({
   clipboardContent: {
     fontSize: 18,
   },
-  list: { flex: 1 },
+  list: { flex: 1, marginTop: 10 },
   button: {
     backgroundColor: "#fff",
     borderRadius: 10,

@@ -30,7 +30,6 @@ const Item = ({ date, content }) => {
 };
 
 const ClipboardList = () => {
-  let url = "https://my.api.mockaroo.com/clipboardcontent.json?key=a7c3ef30";
   let [data, loadData] = useState([]);
   let [isLoading, setIsLoading] = useState(true);
 

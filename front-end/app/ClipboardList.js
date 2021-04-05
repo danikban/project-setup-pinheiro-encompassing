@@ -11,7 +11,6 @@ import {
   ActivityIndicator,
   TouchableOpacity,
   Clipboard,
-  TextInput,
   SafeAreaView,
   RefreshControl,
 } from "react-native";

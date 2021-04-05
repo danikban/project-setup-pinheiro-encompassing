@@ -33,9 +33,6 @@ const ClipboardList = () => {
   let url = "https://my.api.mockaroo.com/clipboardcontent.json?key=a7c3ef30";
   let [data, loadData] = useState([]);
   let [isLoading, setIsLoading] = useState(true);
-  let [refreshing, setRefreshing] = React.useState(false);
-
-  const [blogs, setBlogs] = useState([]);
 
   const temp = [];
 

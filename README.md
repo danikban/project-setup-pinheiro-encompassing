@@ -7,6 +7,13 @@
 - Varun Bhardwaj: https://github.com/vb1262
 - Karan Tibriwal: https://github.com/techsupport-2006
 
+## How to run:
+
+You will need to install expo using either npm or yarn, and to test iOS/android download the respective app: https://expo.io/tools
+Navigate to the front-end directory, and type **expo start**
+
+This will launch a web page with a QR code that is scannable by an iPhone/android camera to launch the demo in the expo app, and it can also be used to access the web version demo.
+
 ## About CopyPasta:
 
 Currently, users are unable to transfer clipboard data across multiple OS’s and devices. The workaround many individuals currently use is either emailing or messaging themselves with the content they want to transfer between platforms. Our idea is a cross-platform shared clipboard across all devices and ecosystems, similar to handoff within iOS.

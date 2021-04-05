@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import db from "./firebase.config.js";
 
 import Moment from "moment";
-import firebase from "firebase";
 
 import {
   StyleSheet,

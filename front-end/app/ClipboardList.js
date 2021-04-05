@@ -88,7 +88,7 @@ const ClipboardList = () => {
   // }, []);
 
   return isLoading ? (
-    <ActivityIndicator size="large" />
+    <ActivityIndicator size="large" style={{ flex: 0.5 }} />
   ) : (
     <SafeAreaView style={{ flex: 1 }}>
       <FlatList
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
   clipboardContent: {
     fontSize: 18,
   },
-  list: { flex: 1 },
+  list: { flex: 1, marginTop: 10 },
   button: {
     backgroundColor: "#fff",
     borderRadius: 10,

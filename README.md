@@ -10,6 +10,7 @@
 ## How to run:
 
 You will need to install expo using either npm or yarn, and to test iOS/android download the respective app: https://expo.io/tools
+
 Navigate to the front-end directory, and type **expo start**
 
 This will launch a web page with a QR code that is scannable by an iPhone/android camera to launch the demo in the expo app, and it can also be used to access the web version demo.

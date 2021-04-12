@@ -15,6 +15,8 @@ import * as Google from 'expo-google-app-auth';
 import { ThemeConsumer } from "react-native-elements";
 import * as firebase from 'firebase';
 
+var userName = "";
+
 const LoginScreen = ({ navigation }) => {
   const [code, setText] = useState("");
 
@@ -67,8 +69,11 @@ const LoginScreen = ({ navigation }) => {
             const check = result.additionalUserInfo.isNewUser
             //console.log(result.user.given_name  result.user.last);
             const name = result.additionalUserInfo.profile.name;
+            userName = name;
+            console.log("HERE");
+            console.log(userName);
+            console.log("HERE2");
             console.log(name);
-            
             storeData(name);
             
             if(check){
@@ -202,4 +207,8 @@ const styles = StyleSheet.create({
 
 });
 
+console.log("HERE 3");
+console.log(userName);
+
 export default LoginScreen;
+export {userName};

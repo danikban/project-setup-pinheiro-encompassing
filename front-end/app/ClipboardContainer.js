@@ -1,33 +1,37 @@
 import React , {useState , useEffect} from "react";
 import { SafeAreaView } from "react-native";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, TextInput, TouchableOpacity } from "react-native";
 import ClipboardList from "./ClipboardList";
 import ConnectedDevicesContainer from "./ConnectedDevicesContainer";
 import LogoutButton from "./Logout";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import LoginScreen from "./LoginScreen";
+import {userName} from "./LoginScreen";
 
 
-const ClipboardContainer = ({navigation}) => {
-  const[nameValue , setNameValue] = useState("");
+const ClipboardContainer = ({ navigation }) => {
+  const [nameValue, setNameValue] = useState("");
+  const user = userName;
+  const UID = "42-314159";
 
   useEffect(() => {
-    getData()
-  })
+    getData();
+  });
 
-  async function getData(){
-  try {
-    const value = await AsyncStorage.getItem('@storage_Key')
-    if(value !== null) {
-      setNameValue(value);
-      console.log(value);
+  async function getData() {
+    try {
+      const value = await AsyncStorage.getItem("@storage_Key");
+      if (value !== null) {
+        setNameValue(value);
+        console.log(value);
+      }
+    } catch (e) {
+      // error reading value
     }
-  } catch(e) {
-    // error reading value
   }
-}
 
   return (
-    <SafeAreaView style = {styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <View style={styles.headerText}>
           <Text style={styles.containerHeaderText}>CopyPasta</Text>
@@ -36,16 +40,46 @@ const ClipboardContainer = ({navigation}) => {
           <Text style={styles.containerSubHeaderText}>sharing. made easy.</Text>
         </View>
       </View>
+      {/* <View
+        style={{
+          flex: 0.04,
+          borderBottomColor: "white",
+          borderBottomWidth: 1,
+        }}
+      /> */}
       <View style={styles.listContainer}>
-        <ClipboardList />
         <View style={styles.userInfo}>
-          <Text style={styles.containerDetailText}>
-            User: {nameValue} - #42-314159
-          </Text>
+          <View
+            style={{
+              flex: 0.5,
+            }}
+          >
+            <Text style={styles.containerDetailText}>Welcome, {user}!</Text>
+          </View>
+          <View
+            style={{
+              flex: 0.3,
+            }}
+          >
+            <Text style={styles.containerDetailText}>UID: #{UID}</Text>
+          </View>
         </View>
+        <TextInput
+          autoCorrect={false}
+          style={styles.item}
+          placeholder="An empty text box, for spontaneous CopyPastas"
+          onChangeText={(TextBox) => setText(TextBox)}
+          defaultValue={ClipboardList.TextBox}
+          clearButtonMode="always"
+        ></TextInput>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}>Add To CopyPasta</Text>
+        </TouchableOpacity>
+        <ClipboardList />
       </View>
       <ConnectedDevicesContainer />
       <LogoutButton />
+      <View style={{ flex: 0.05 }} />
     </SafeAreaView>
   );
 };
@@ -57,7 +91,7 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
     justifyContent: "center",
     alignItems: "center",
-},
+  },
   listContainer: {
     flex: 1,
   },
@@ -81,12 +115,34 @@ const styles = StyleSheet.create({
     color: "#fff",
   },
   containerDetailText: {
-    fontSize: 10,
+    fontSize: 14,
     color: "lightgray",
   },
   userInfo: {
-    marginTop: 20,
+    width: "100%",
     alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "row",
+  },
+  item: {
+    backgroundColor: "#fff",
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
+    borderRadius: 10,
+    minWidth: "85%",
+  },
+  button: {
+    backgroundColor: "#fff",
+    borderRadius: 10,
+    padding: 10,
+    justifyContent: "center",
+    alignItems: "center",
+    marginHorizontal: 70,
+  },
+  buttonText: {
+    color: "#01003b",
+    fontSize: 16,
   },
 });
 

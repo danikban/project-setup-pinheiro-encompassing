@@ -40,7 +40,7 @@ const ClipboardContainer = ({navigation}) => {
         <ClipboardList />
         <View style={styles.userInfo}>
           <Text style={styles.containerDetailText}>
-            {nameValue} User: #42-314159
+            User: {nameValue} - #42-314159
           </Text>
         </View>
       </View>

@@ -1,4 +1,8 @@
 import React, { useEffect, useState } from "react";
+import db from "./firebase.config.js";
+
+import Moment from "moment";
+
 import {
   StyleSheet,
   Text,
@@ -6,6 +10,7 @@ import {
   ActivityIndicator,
   TouchableOpacity,
   Clipboard,
+  SafeAreaView,
   RefreshControl,
 } from "react-native";
 
@@ -23,48 +28,73 @@ const Item = ({ date, content }) => {
 };
 
 const ClipboardList = () => {
-  let url = "https://my.api.mockaroo.com/clipboardcontent.json?key=a7c3ef30";
   let [data, loadData] = useState([]);
   let [isLoading, setIsLoading] = useState(true);
-  let [refreshing, setRefreshing] = React.useState(false);
 
-  const onRefresh = () => {
-    setIsLoading(true);
-    fetch(url)
-      .then((response) => response.json())
-      .then((json) => {
-        loadData(json);
-        setIsLoading(false);
-      });
+  const [blogs, setBlogs] = useState([]);
+
+  const temp = [];
+
+  const fetchBlogs = async () => {
+    const response = db.collection("things");
+    const data = await response.get();
+    data.docs.forEach((item) => {
+      console.log(item.data());
+      //temp.push(item.data());
+      let x = item.data();
+      x.date = Moment(item.date).format("MMMM Do, YYYY H:mma").toString();
+      temp.push(x);
+      console.log(temp);
+      loadData(temp);
+    });
+    setIsLoading(false);
   };
+
+  useEffect(() => {
+    fetchBlogs();
+  }, []);
+
+  console.log(blogs);
+
+  let things = db.collection("/things");
+  try {
+    things.add({
+      content: "the other sample data",
+      date: Date.now(),
+      key: 1,
+      name: "tomato",
+      title: "ball",
+    });
+  } catch (err) {
+    console.log(err);
+  }
 
   const renderItem = ({ item }) => (
     <Item date={item.date} content={item.content} />
   );
-  useEffect(() => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((json) => {
-        loadData(json);
-        console.log(json);
-        setIsLoading(false);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch(url)
+  //     .then((response) => response.json())
+  //     .then((json) => {
+  //       loadData(json);
+  //       console.log(json);
+  //       setIsLoading(false);
+  //     });
+  // }, []);
 
   return isLoading ? (
-    <ActivityIndicator size="large" />
+    <ActivityIndicator size="large" style={{ flex: 0.5 }} />
   ) : (
-    <FlatList
-      data={data}
-      renderItem={renderItem}
-      style={styles.list}
-      refreshControl={
-        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-      }
-      keyExtractor={(item, index) => {
-        return index.toString();
-      }}
-    ></FlatList>
+    <SafeAreaView style={{ flex: 1 }}>
+      <FlatList
+        data={data}
+        renderItem={renderItem}
+        style={styles.list}
+        keyExtractor={(item, index) => {
+          return index.toString();
+        }}
+      ></FlatList>
+    </SafeAreaView>
   );
 };
 
@@ -84,7 +114,19 @@ const styles = StyleSheet.create({
   clipboardContent: {
     fontSize: 18,
   },
-  list: { flex: 1 },
+  list: { flex: 1, marginTop: 10 },
+  button: {
+    backgroundColor: "#fff",
+    borderRadius: 10,
+    padding: 10,
+    justifyContent: "center",
+    alignItems: "center",
+    marginHorizontal: 70,
+  },
+  buttonText: {
+    color: "#01003b",
+    fontSize: 16,
+  },
 });
 
 export default ClipboardList;

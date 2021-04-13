@@ -1,5 +1,6 @@
-import React , {useState , useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { SafeAreaView } from "react-native";
+
 import { View, StyleSheet, Text, TextInput, TouchableOpacity } from "react-native";
 import ClipboardList from "./ClipboardList";
 import ConnectedDevicesContainer from "./ConnectedDevicesContainer";
@@ -120,6 +121,7 @@ const styles = StyleSheet.create({
   },
   userInfo: {
     width: "100%",
+
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "row",
@@ -138,6 +140,7 @@ const styles = StyleSheet.create({
     padding: 10,
     justifyContent: "center",
     alignItems: "center",
+
     marginHorizontal: 70,
   },
   buttonText: {

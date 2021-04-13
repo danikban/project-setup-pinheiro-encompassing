@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1051643207020",
+    "project_id": "my-app-7ea7b",
+    "storage_bucket": "my-app-7ea7b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1051643207020:android:c32989f1d6f64967872749",
+        "android_client_info": {
+          "package_name": "copypasta.android.auth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1051643207020-3fejn5arfgbltknpfhue8aep9m7682l3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIoEf2fwKMxmTLcC3AZssiugbCxOOhLSI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1051643207020-3fejn5arfgbltknpfhue8aep9m7682l3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

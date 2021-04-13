@@ -1,20 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { SafeAreaView } from "react-native";
-import {
-  View,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-} from "react-native";
+
+import { View, StyleSheet, Text, TextInput, TouchableOpacity } from "react-native";
 import ClipboardList from "./ClipboardList";
 import ConnectedDevicesContainer from "./ConnectedDevicesContainer";
 import LogoutButton from "./Logout";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import LoginScreen from "./LoginScreen";
+import {userName} from "./LoginScreen";
+
 
 const ClipboardContainer = ({ navigation }) => {
   const [nameValue, setNameValue] = useState("");
-  const user = "Rahat Hossan";
+  const user = userName;
   const UID = "42-314159";
 
   useEffect(() => {
@@ -123,6 +121,7 @@ const styles = StyleSheet.create({
   },
   userInfo: {
     width: "100%",
+
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "row",
@@ -141,6 +140,7 @@ const styles = StyleSheet.create({
     padding: 10,
     justifyContent: "center",
     alignItems: "center",
+
     marginHorizontal: 70,
   },
   buttonText: {

@@ -41,3 +41,6 @@ A user has both an android device and an iOS device. The user copies a phone num
 
 - https://stackoverflow.com/questions/54728263/react-native-listener-for-change-in-clipboard
 - https://altcopy.net/#howto
+
+## KT - Unit Testing:
+For unit testing (sprint 2), I tested the googleAsync function, isUserEqual, storeData, onSignIn, and the mobile sign in process. The way I did this was automatically signing in a list of 5 google accounts, and seeing if the process logged. I also set up a small bit of code to test if the functions were pulling the appropriate information. For example, in the sign in function, was it pulling the profile name from google? Did it log it properly? I also ran manual tests by placing "HERE" statements (which are commented out). I manually tested all the functions and once I confirmed they were working as intended, I pushed the code. 

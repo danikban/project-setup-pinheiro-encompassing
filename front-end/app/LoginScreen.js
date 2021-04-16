@@ -132,6 +132,19 @@ const LoginScreen = ({ navigation }) => {
       return { error: true };
     }
   }
+
+  async function signInWithCode() {
+    try {
+      firebase
+      .database()
+      .ref('/users/' + code)
+      .update({
+        last_logged_in : Date.now()
+      })
+    } catch (e) {
+    return { error: true };
+  }
+  }
   return (
     <SafeAreaView style={styles.containerLogin}>
       <View style={{ flex: 0.1 }} />
@@ -149,7 +162,7 @@ const LoginScreen = ({ navigation }) => {
       <TouchableOpacity style={styles.button}
         onPress={() => navigation.navigate("ClipboardContainer")}
       >
-        <Text style={styles.buttonText}>Login</Text>
+        <Text style={styles.buttonText} onPress={signInWithCode}>Login</Text>
       </TouchableOpacity>
       <View style={{ flex: 0.1 }} />
       <TouchableOpacity style={styles.button} onPress={signInWithGoogleAsync}>

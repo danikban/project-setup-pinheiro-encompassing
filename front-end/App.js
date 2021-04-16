@@ -10,6 +10,7 @@ import Navigation from "./app/Navigation";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import * as firebase from "firebase";
 import db from "./app/firebase.config.js";
+import Constants from 'expo-constants';
 
 import { firebaseConfig } from "./config";
 //firebase.initializeApp(firebaseConfig);

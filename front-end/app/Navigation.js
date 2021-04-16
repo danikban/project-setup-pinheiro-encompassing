@@ -5,6 +5,7 @@ import { View, Text, Button, StyleSheet, SafeAreaView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as Google from 'expo-google-app-auth';
+import Constants from 'expo-constants';
 
 import LoadingScreen from './LoadingScreen';
 import ClipboardContainer from './ClipboardContainer';
@@ -30,6 +31,7 @@ import Logout from './Logout';
 const Stack = createStackNavigator();
 
 function App() {
+    console.log(Constants.deviceName);
     return (
         <NavigationContainer>
             <Stack.Navigator initialRouteName="LoadingScreen">

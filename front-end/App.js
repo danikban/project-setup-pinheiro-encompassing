@@ -45,3 +45,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 });
+
+export const devices = [];
+
+const currentDevice = Constants.deviceName;
+
+while(!devices.includes(currentDevice)) {
+  devices.push(currentDevice);
+}
+
+console.log(devices);

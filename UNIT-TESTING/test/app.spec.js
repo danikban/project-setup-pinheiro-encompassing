@@ -30,9 +30,9 @@ describe('the subtract/divide functions', () => {
         const result = sub(4,2);
         assert.strictEqual(result,2);
     });
-    it("handle only 1 as a parameter for add 2-1=1",() =>{
-        const result = sub(1);
-        assert.strictEqual(result,1);
+    it("handle only 2 as a parameter for subtract 2-0=2",() =>{
+        const result = sub(2);
+        assert.strictEqual(result,2);
     });
     it("should be equal to 0 for no values",() =>{
         const result = sub();

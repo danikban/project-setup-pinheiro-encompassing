@@ -31,7 +31,6 @@ import Logout from './Logout';
 const Stack = createStackNavigator();
 
 function App() {
-    console.log(Constants.deviceName);
     return (
         <NavigationContainer>
             <Stack.Navigator initialRouteName="LoadingScreen">

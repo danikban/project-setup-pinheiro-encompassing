@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Constants from 'expo-constants';
 import {
   View,
   Text,
@@ -21,11 +22,12 @@ const ConnectedDevicesList = ({ buttonPress }) => {
       .then((response) => response.json())
       .then((json) => {
         loadDevices(json);
-        console.log(json);
+        //console.log(json);
         setIsLoading(false);
       });
   }, []);
-  console.log(devices);
+  //console.log(devices);
+  console.log(Constants.deviceName);
   return isLoading ? (
     <Overlay overlayStyle={styles.container}>
       <ActivityIndicator size="large" />

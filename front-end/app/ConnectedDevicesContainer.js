@@ -18,6 +18,7 @@ const ConnectedDevicesContainer = () => {
   ) : (
     <View style={styles.bottom}>
       <ConnectedDevicesButton onPress={() => setShowList(true)} />
+      
     </View>
   );
 };

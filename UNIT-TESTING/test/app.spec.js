@@ -57,4 +57,7 @@ describe("Square root function", () => {
     const result = squareRoot();
     assert.strictEqual(result, 0);
   });
+  it("sqrt(-1) should result in NaN", () => {
+    assert(isNaN(squareRoot(-1)));
+  });
 });

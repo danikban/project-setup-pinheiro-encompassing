@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { SafeAreaView } from "react-native";
 
-import { View, StyleSheet, Text, TextInput, TouchableOpacity } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+} from "react-native";
 import ClipboardList from "./ClipboardList";
 import ConnectedDevicesContainer from "./ConnectedDevicesContainer";
 import LogoutButton from "./Logout";
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import LoginScreen from "./LoginScreen";
-import {userName} from "./LoginScreen";
-
+import { userName } from "./LoginScreen";
 
 const ClipboardContainer = ({ navigation }) => {
   const [nameValue, setNameValue] = useState("");
@@ -79,7 +84,7 @@ const ClipboardContainer = ({ navigation }) => {
         <ClipboardList />
       </View>
       <ConnectedDevicesContainer />
-      <LogoutButton />
+      <LogoutButton navigation={navigation} />
       <View style={{ flex: 0.05 }} />
     </SafeAreaView>
   );

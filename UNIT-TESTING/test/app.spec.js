@@ -58,10 +58,15 @@ describe("Square root function", () => {
     assert.strictEqual(result, 0);
   });
   it("sqrt(-1) should result in NaN", () => {
-    assert(isNaN(squareRoot(-1)));
+    const result = squareRoot(-1);
+    assert(isNaN(result));
   });
   it("sqrt(0) should equal 0", () => {
     const result = squareRoot(0);
     assert.strictEqual(result, 0);
+  });
+  it("sqrt of non-numbers should return NaN", () => {
+    const result = squareRoot("This should be NaN");
+    assert(isNaN(result));
   });
 });

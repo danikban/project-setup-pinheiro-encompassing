@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-//import { devices } from './../App';
 import {
   View,
   Text,
@@ -9,26 +8,18 @@ import {
   Image,
   ActivityIndicator,
 } from "react-native";
-import Constants from 'expo-constants';
 
 import { Overlay } from "react-native-elements";
-
-const devices = [];
-
-const currentDevice = Constants.deviceName;
-
-while(!devices.includes(currentDevice)) {
-  devices.push(currentDevice);
-}
-
-console.log(devices);
+import { Devices } from './../App';
 
 const ConnectedDevicesList = ({ buttonPress }) => {
-  let [devices2, loadDevices] = useState([]);
+  let [devices, loadDevices] = useState([]);
   let [isLoading, setIsLoading] = useState(true);
   const url = "https://my.api.mockaroo.com/connecteddevices.json?key=a7c3ef30";
+  const [array, setArray] = useState('')
 
   useEffect(() => {
+    console.log('Devices Data Connected',Devices)
     fetch(url)
       .then((response) => response.json())
       .then((json) => {
@@ -37,7 +28,7 @@ const ConnectedDevicesList = ({ buttonPress }) => {
         setIsLoading(false);
       });
   }, []);
-  console.log(devices2);
+  // console.log('Devices',devices);
   //console.log(Constants.deviceName);
   return isLoading ? (
     <Overlay overlayStyle={styles.container}>
@@ -46,11 +37,11 @@ const ConnectedDevicesList = ({ buttonPress }) => {
   ) : (
     <Overlay overlayStyle={styles.container}>
       <FlatList
-        data={devices2}
+        data={Devices}
         renderItem={renderItem}
-        // keyExtractor={(item, index) => {
-        //   return index.toString();
-        // }}
+        keyExtractor={(item, index) => {
+          return index.toString();
+        }}
       ></FlatList>
       <TouchableOpacity style={styles.button} onPress={buttonPress}>
         <Text style={styles.buttonText}>Exit</Text>
@@ -59,7 +50,7 @@ const ConnectedDevicesList = ({ buttonPress }) => {
   );
 };
 
-const renderItem = ({ item }) => <Item title={item.title} />;
+const renderItem = ({ item }) => <Item title={item} />;
 
 const Item = ({ title }) => (
   <View style={styles.item}>

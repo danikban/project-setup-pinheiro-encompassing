@@ -46,12 +46,12 @@ const styles = StyleSheet.create({
   },
 });
 
-export const devices = [];
+export const Devices = [];
 
 const currentDevice = Constants.deviceName;
 
-while(!devices.includes(currentDevice)) {
-  devices.push(currentDevice);
+while(!Devices.includes(currentDevice)) {
+  Devices.push(currentDevice);
 }
 
-console.log(devices);
+console.log('Data Devices',Devices);

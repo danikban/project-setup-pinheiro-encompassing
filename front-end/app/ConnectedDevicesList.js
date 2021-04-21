@@ -10,22 +10,26 @@ import {
 } from "react-native";
 
 import { Overlay } from "react-native-elements";
+import { Devices } from './../App';
 
 const ConnectedDevicesList = ({ buttonPress }) => {
   let [devices, loadDevices] = useState([]);
   let [isLoading, setIsLoading] = useState(true);
   const url = "https://my.api.mockaroo.com/connecteddevices.json?key=a7c3ef30";
+  const [array, setArray] = useState('')
 
   useEffect(() => {
+    console.log('Devices Data Connected',Devices)
     fetch(url)
       .then((response) => response.json())
       .then((json) => {
         loadDevices(json);
-        console.log(json);
+        //console.log(json);
         setIsLoading(false);
       });
   }, []);
-  console.log(devices);
+  // console.log('Devices',devices);
+  //console.log(Constants.deviceName);
   return isLoading ? (
     <Overlay overlayStyle={styles.container}>
       <ActivityIndicator size="large" />
@@ -33,7 +37,7 @@ const ConnectedDevicesList = ({ buttonPress }) => {
   ) : (
     <Overlay overlayStyle={styles.container}>
       <FlatList
-        data={devices}
+        data={Devices}
         renderItem={renderItem}
         keyExtractor={(item, index) => {
           return index.toString();
@@ -46,7 +50,7 @@ const ConnectedDevicesList = ({ buttonPress }) => {
   );
 };
 
-const renderItem = ({ item }) => <Item title={item.title} />;
+const renderItem = ({ item }) => <Item title={item} />;
 
 const Item = ({ title }) => (
   <View style={styles.item}>

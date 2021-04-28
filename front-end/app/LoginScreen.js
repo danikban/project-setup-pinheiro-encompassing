@@ -61,6 +61,7 @@ const LoginScreen = ({ navigation }) => {
           googleUser.idToken,
           googleUser.accessToken
         );
+        console.log(credential);
         // Sign in with credential from the Google user.
         firebase
           .auth()
@@ -77,7 +78,6 @@ const LoginScreen = ({ navigation }) => {
             console.log("HERE2");
             console.log(name);
 
-          
             storeData(name);
 
             if (check) {
@@ -116,6 +116,10 @@ const LoginScreen = ({ navigation }) => {
             // The firebase.auth.AuthCredential type that was used.
             var credential = error.credential;
             // ...
+            console.log("Error code: " + error.code);
+            console.log("Error Message: " + error.message);
+            console.log("Email: " + email);
+            console.log("Credential: " + error.credential);
           });
       } else {
         console.log("User already signed-in Firebase.");
@@ -217,4 +221,4 @@ console.log("HERE 3");
 console.log(userName);
 
 export default LoginScreen;
-export {userName};
+export { userName };

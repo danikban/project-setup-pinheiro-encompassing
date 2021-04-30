@@ -16,6 +16,7 @@ import { ThemeConsumer } from "react-native-elements";
 import firebase from "firebase";
 
 var userName = "";
+var userID = "";
 
 const LoginScreen = ({ navigation }) => {
   const [code, setText] = useState("");
@@ -24,9 +25,9 @@ const LoginScreen = ({ navigation }) => {
     Alert.alert("loggedIn");
   }
 
-  function isUserEqual(googleUser, firebaseUser) {
-    if (firebaseUser) {
-      var providerData = firebaseUser.providerData;
+  function isUserEqual(googleUser, FirebaseUser) {
+    if (FirebaseUser) {
+      var providerData = FirebaseUser.providerData;
       for (var i = 0; i < providerData.length; i++) {
         if (
           providerData[i].providerId ===
@@ -52,15 +53,17 @@ const LoginScreen = ({ navigation }) => {
   function onSignIn(googleUser) {
     console.log("Google Auth Response", googleUser);
     // We need to register an Observer on Firebase Auth to make sure auth is initialized.
-    var unsubscribe = firebase.auth().onAuthStateChanged((firebaseUser) => {
+    var unsubscribe = firebase.auth().onAuthStateChanged((FirebaseUser) => {
       unsubscribe();
       // Check if we are already signed-in Firebase with the correct user.
-      if (!isUserEqual(googleUser, firebaseUser)) {
+      if (!isUserEqual(googleUser, FirebaseUser)) {
         // Build Firebase credential with the Google ID token.
         var credential = firebase.auth.GoogleAuthProvider.credential(
           googleUser.idToken,
           googleUser.accessToken
         );
+
+        console.log("CREDENTIAL DISPLAY:");
         console.log(credential);
         // Sign in with credential from the Google user.
         firebase
@@ -78,6 +81,11 @@ const LoginScreen = ({ navigation }) => {
             console.log("HERE2");
             console.log(name);
 
+            const id = result.additionalUserInfo.profile.id;
+            
+            console.log("TESTING USER ID OUTPUT");
+            console.log("CHECK");
+
             storeData(name);
 
             if (check) {
@@ -87,7 +95,7 @@ const LoginScreen = ({ navigation }) => {
               const last = result.additionalUserInfo.profile.family_name;
               //const picture = result.additionalUserInfo.photoUrl;
               //const locale = result.additionalUserInfo.locale;
-
+              
               firebase
                 .database()
                 .ref("/users/" + uid)
@@ -219,6 +227,8 @@ const styles = StyleSheet.create({
 
 console.log("HERE 3");
 console.log(userName);
+
+
 
 export default LoginScreen;
 export { userName };

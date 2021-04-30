@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import ClipboardList from "./ClipboardList";
 import ConnectedDevicesContainer from "./ConnectedDevicesContainer";
+import AddToCopyPastaButton from "./AddToCopyPastaButton";
 import LogoutButton from "./Logout";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import LoginScreen from "./LoginScreen";
@@ -17,6 +18,7 @@ import { userName } from "./LoginScreen";
 
 const ClipboardContainer = ({ navigation }) => {
   const [nameValue, setNameValue] = useState("");
+  const [text,setText] = useState("");  
   const user = userName;
   const UID = "42-314159";
 
@@ -73,13 +75,13 @@ const ClipboardContainer = ({ navigation }) => {
         <TextInput
           autoCorrect={false}
           style={styles.item}
-          placeholder="An empty text box, for spontaneous CopyPastas"
+          placeholder="Paste your text here"
           onChangeText={(TextBox) => setText(TextBox)}
           defaultValue={ClipboardList.TextBox}
           clearButtonMode="always"
         ></TextInput>
         <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Add To CopyPasta</Text>
+         <AddToCopyPastaButton copyText={text}/>
         </TouchableOpacity>
         <ClipboardList />
       </View>

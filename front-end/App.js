@@ -1,16 +1,9 @@
 import "react-native-gesture-handler";
-import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
-import { Text, SafeAreaView, StyleSheet } from "react-native";
-import ConnectedDevicesContainer from "./app/ConnectedDevicesContainer";
-import Login from "./app/LoginScreen";
-import ClipboardContainer from "./app/ClipboardContainer";
-import LoginScreen from "./app/LoginScreen";
+import React from "react";
+import { StyleSheet } from "react-native";
 import Navigation from "./app/Navigation";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import * as firebase from "firebase";
-import db from "./app/firebase.config.js";
-import Constants from 'expo-constants';
+import Constants from "expo-constants";
 
 import { firebaseConfig } from "./config";
 //firebase.initializeApp(firebaseConfig);
@@ -50,8 +43,8 @@ export const Devices = [];
 
 const currentDevice = Constants.deviceName;
 
-while(!Devices.includes(currentDevice)) {
+while (!Devices.includes(currentDevice)) {
   Devices.push(currentDevice);
 }
 
-console.log('Data Devices',Devices);
+console.log("Data Devices", Devices);

@@ -72,16 +72,7 @@ const ClipboardList = () => {
   const renderItem = ({ item }) => (
     <Item date={item.date} content={item.content} />
   );
-  // useEffect(() => {
-  //   fetch(url)
-  //     .then((response) => response.json())
-  //     .then((json) => {
-  //       loadData(json);
-  //       console.log(json);
-  //       setIsLoading(false);
-  //     });
-  // }, []);
-
+  
   return isLoading ? (
     <ActivityIndicator size="large" style={{ flex: 0.5 }} />
   ) : (

@@ -15,12 +15,13 @@ import LogoutButton from "./Logout";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import LoginScreen from "./LoginScreen";
 import { userName } from "./LoginScreen";
+import { userID } from "./LoginScreen";
 
 const ClipboardContainer = ({ navigation }) => {
   const [nameValue, setNameValue] = useState("");
   const [text,setText] = useState("");  
   const user = userName;
-  const UID = "42-314159";
+  const UID = userID;
 
   useEffect(() => {
     getData();

@@ -16,10 +16,11 @@ import { ThemeConsumer } from "react-native-elements";
 import firebase from "firebase";
 
 var userName = "";
+var userID = "";
 
 const LoginScreen = ({ navigation }) => {
   const [code, setText] = useState("");
-
+  
   function signIntest() {
     Alert.alert("loggedIn");
   }
@@ -78,6 +79,9 @@ const LoginScreen = ({ navigation }) => {
             console.log("HERE2");
             console.log(name);
 
+            console.log("TESTING UID");
+            //console.log(generateUID());
+
             storeData(name);
 
             if (check) {
@@ -85,6 +89,7 @@ const LoginScreen = ({ navigation }) => {
               const mail = result.user.email;
               const first = result.additionalUserInfo.profile.given_name;
               const last = result.additionalUserInfo.profile.family_name;
+              const id = generateUID()
               //const picture = result.additionalUserInfo.photoUrl;
               //const locale = result.additionalUserInfo.locale;
 
@@ -96,7 +101,7 @@ const LoginScreen = ({ navigation }) => {
                   //profile_picture: picture,
                   first_name: first,
                   last_name: last,
-                  uid: generateUID(),
+                  uid: id,
                   created_at: Date.now(),
                 });
             } else {
@@ -106,6 +111,9 @@ const LoginScreen = ({ navigation }) => {
                 .update({
                   last_logged_in: Date.now(),
                 });
+              
+              userID = result.user.uid;
+              console.log(userID);
             }
           })
           .catch((error) => {
@@ -147,15 +155,6 @@ const LoginScreen = ({ navigation }) => {
     } catch (e) {
       return { error: true };
     }
-  }
-
-  function generateUID() {
-    var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    var charsLengthMinusOne = chars.length - 1
-    var result = ''
-    for (var i = 8; i > 0; --i)
-        result += chars[Math.round(Math.random() * (charsLengthMinusOne))]
-    return result;
   }
 
   function codeSignIn () {
@@ -250,8 +249,18 @@ const styles = StyleSheet.create({
   },
 });
 
+function generateUID() {
+  var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  var charsLengthMinusOne = chars.length - 1
+  var result = ''
+  for (var i = 8; i > 0; --i)
+      result += chars[Math.round(Math.random() * (charsLengthMinusOne))]
+  return result;
+}
+
 console.log("HERE 3");
 console.log(userName);
 
 export default LoginScreen;
 export { userName };
+export { userID };

@@ -96,7 +96,7 @@ const LoginScreen = ({ navigation }) => {
                   //profile_picture: picture,
                   first_name: first,
                   last_name: last,
-                  uid: generateUID(),
+                  uid: 'test',
                   created_at: Date.now(),
                 });
             } else {

@@ -96,6 +96,7 @@ const LoginScreen = ({ navigation }) => {
                   //profile_picture: picture,
                   first_name: first,
                   last_name: last,
+                  uid: generateUID(),
                   created_at: Date.now(),
                 });
             } else {
@@ -147,6 +148,51 @@ const LoginScreen = ({ navigation }) => {
       return { error: true };
     }
   }
+
+  function generateUID() {
+    var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    var charsLengthMinusOne = chars.length - 1
+    var result = ''
+    for (var i = 8; i > 0; --i)
+        result += chars[Math.round(Math.random() * (charsLengthMinusOne))]
+    
+    let rootRef = firebase.database().ref();
+    rootRef
+      .child('users')
+      .orderByChild('uid')
+      .equalTo(result)
+      .once('value')
+      .then(snapshot => {
+        if (snapshot.exists()) {
+          return generateUID();
+        } else {
+          return result;
+        }
+    });
+  }
+
+  function codeSignIn () {
+    try{
+      let rootRef = firebase.database().ref();
+      rootRef
+        .child('users')
+        .orderByChild('uid')
+        .equalTo(LoginScreen.code)
+        .once('value')
+        .then(snapshot => {
+          if (snapshot.exists()) { 
+            navigation.navigate("ClipboardContainer")
+            return console.log("user exists");
+          } else {
+            return console.log("user does not exist");
+          }
+      });
+
+    }
+    catch (e) {
+      return {error: true}
+    }
+  }
   return (
     <SafeAreaView style={styles.containerLogin}>
       <View style={{ flex: 0.1 }} />
@@ -165,7 +211,7 @@ const LoginScreen = ({ navigation }) => {
         style={styles.button}
         onPress={() => navigation.navigate("ClipboardContainer")}
       >
-        <Text style={styles.buttonText}>Login</Text>
+        <Text style={styles.buttonText} onPress={codeSignIn}>Login</Text>
       </TouchableOpacity>
       <View style={{ flex: 0.1 }} />
       <TouchableOpacity style={styles.button} onPress={signInWithGoogleAsync}>

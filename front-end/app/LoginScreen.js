@@ -77,7 +77,8 @@ const LoginScreen = ({ navigation }) => {
             console.log(userName);
             console.log("HERE2");
             //get's user ID
-            console.log(result.additionalUserInfo.profile.sub);
+            var id = result.additionalUserInfo.profile.sub;
+            console.log(id);
 
             storeData(name);
 
@@ -223,3 +224,4 @@ console.log(userName);
 
 export default LoginScreen;
 export { userName };
+export { id };

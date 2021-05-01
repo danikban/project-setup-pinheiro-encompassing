@@ -77,9 +77,9 @@ const LoginScreen = ({ navigation }) => {
             console.log(userName);
             console.log("HERE2");
             //get's user ID
-            //var id = result.additionalUserInfo.profile.sub;
+            var id = result.additionalUserInfo.profile.sub;
             console.log("TESTING ID OUTPUT");
-            //console.log(id);
+            console.log(id);
             console.log(result.additionalUserInfo.profile.sub);
 
             storeData(name);

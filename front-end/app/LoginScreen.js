@@ -16,6 +16,7 @@ import { ThemeConsumer } from "react-native-elements";
 import firebase from "firebase";
 
 var userName = "";
+var id = 1;
 
 const LoginScreen = ({ navigation }) => {
   const [code, setText] = useState("");
@@ -76,7 +77,13 @@ const LoginScreen = ({ navigation }) => {
             console.log("HERE");
             console.log(userName);
             console.log("HERE2");
-            console.log(name);
+            //get's user ID
+            var tmp = result.additionalUserInfo.profile.sub;
+            console.log("TESTING ID OUTPUT");
+            console.log(tmp);
+            console.log(result.additionalUserInfo.profile.sub);
+            id = String(tmp).slice(-8)
+            console.log(id);
 
             storeData(name);
 
@@ -114,12 +121,12 @@ const LoginScreen = ({ navigation }) => {
             // The email of the user's account used.
             var email = error.email;
             // The firebase.auth.AuthCredential type that was used.
-            var credential = error.credential;
+            var errorCredential = error.credential;
             // ...
-            console.log("Error code: " + error.code);
-            console.log("Error Message: " + error.message);
+            console.log("Error code: " + errorCode);
+            console.log("Error Message: " + errorMessage);
             console.log("Email: " + email);
-            console.log("Credential: " + error.credential);
+            console.log("Credential: " + errorCredential);
           });
       } else {
         console.log("User already signed-in Firebase.");
@@ -222,3 +229,4 @@ console.log(userName);
 
 export default LoginScreen;
 export { userName };
+export { id };

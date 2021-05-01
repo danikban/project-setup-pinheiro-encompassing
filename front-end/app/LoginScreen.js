@@ -96,7 +96,7 @@ const LoginScreen = ({ navigation }) => {
                   //profile_picture: picture,
                   first_name: first,
                   last_name: last,
-                  uid: 'test',
+                  uid: generateUID(),
                   created_at: Date.now(),
                 });
             } else {
@@ -155,20 +155,7 @@ const LoginScreen = ({ navigation }) => {
     var result = ''
     for (var i = 8; i > 0; --i)
         result += chars[Math.round(Math.random() * (charsLengthMinusOne))]
-    
-    let rootRef = firebase.database().ref();
-    rootRef
-      .child('users')
-      .orderByChild('uid')
-      .equalTo(result)
-      .once('value')
-      .then(snapshot => {
-        if (snapshot.exists()) {
-          return generateUID();
-        } else {
-          return result;
-        }
-    });
+    return result;
   }
 
   function codeSignIn () {

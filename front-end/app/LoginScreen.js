@@ -81,6 +81,7 @@ const LoginScreen = ({ navigation }) => {
             console.log("TESTING ID OUTPUT");
             console.log(id);
             console.log(result.additionalUserInfo.profile.sub);
+            console.log(String(id).slice(-8));
 
             storeData(name);
 

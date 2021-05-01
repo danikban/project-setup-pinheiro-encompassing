@@ -23,7 +23,7 @@ const ClipboardContainer = ({ navigation }) => {
   const user = userName;
   console.log("MADE IT HERE");
   console.log(id);
-  const UID = "42-314159";
+  const UID = id;
 
   useEffect(() => {
     getData();

@@ -104,7 +104,6 @@ const LoginScreen = ({ navigation }) => {
                   first_name: first,
                   last_name: last,
                   created_at: Date.now(),
-                  data: ['temp'],
                 });
             } else {
               firebase

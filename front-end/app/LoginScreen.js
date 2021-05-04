@@ -18,6 +18,9 @@ const LoginScreen = ({ navigation }) => {
   const [code, setText] = useState("");
 
   async function signInWithGoogle() {
+
+    //NEed to identify how to see if web. 
+
     const googleUser = new firebase.auth.GoogleAuthProvider()
     const auth = firebase.auth();
     auth.signInWithPopup(googleUser).then((result) => {

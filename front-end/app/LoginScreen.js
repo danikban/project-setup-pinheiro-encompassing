@@ -17,6 +17,7 @@ import firebase from "firebase";
 
 var userName = "";
 var id = 1;
+var userID = "";
 
 const LoginScreen = ({ navigation }) => {
   const [code, setText] = useState("");
@@ -89,6 +90,7 @@ const LoginScreen = ({ navigation }) => {
 
             if (check) {
               const uid = result.user.uid;
+              userID = uid;
               const mail = result.user.email;
               const first = result.additionalUserInfo.profile.given_name;
               const last = result.additionalUserInfo.profile.family_name;
@@ -106,6 +108,7 @@ const LoginScreen = ({ navigation }) => {
                   created_at: Date.now(),
                   data: [''],
                   id: id,
+                  test: "",
                 });
             } else {
               firebase
@@ -232,3 +235,4 @@ console.log(userName);
 export default LoginScreen;
 export { userName };
 export { id };
+export { userID };

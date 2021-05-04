@@ -85,11 +85,11 @@ const LoginScreen = ({ navigation }) => {
             storeData(name);
 
             if (check) {
-              const uid = result.user.uid;
+              const uid = generateUID();
               const mail = result.user.email;
               const first = result.additionalUserInfo.profile.given_name;
               const last = result.additionalUserInfo.profile.family_name;
-              const id = generateUID()
+              const id = uid
               //const picture = result.additionalUserInfo.photoUrl;
               //const locale = result.additionalUserInfo.locale;
 
@@ -101,7 +101,7 @@ const LoginScreen = ({ navigation }) => {
                   //profile_picture: picture,
                   first_name: first,
                   last_name: last,
-                  uid: id,
+                  uid: uid,
                   created_at: Date.now(),
                 });
             } else {

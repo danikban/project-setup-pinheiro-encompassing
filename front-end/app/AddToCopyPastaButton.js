@@ -6,9 +6,11 @@ import firebase from "firebase";
 import {userID} from "./LoginScreen.js";
 
 
+
 const AddToCopyPastaButton = ({ copyText }) => {
   const cl = async () => {
     //SEND DATA TO FIREBASE HERE
+
     console.log("DATABASE working");
     console.log(db);
     console.log("ID");
@@ -16,6 +18,10 @@ const AddToCopyPastaButton = ({ copyText }) => {
     firebase.database().ref("/users/"+userID).update({test: "TEST"});
 
     console.log("DOES IT MAKE IT HERE? LETS FIND OUT");
+
+    //var users = db.ref("users");
+    console.log(id);
+
     //users.orderByChild("id").on("");
 
     // ref.orderByChild("dimensions/height").on("child_added", function(snapshot) {

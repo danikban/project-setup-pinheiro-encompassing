@@ -14,6 +14,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as Google from "expo-google-app-auth";
 import { ThemeConsumer } from "react-native-elements";
 import firebase from "firebase";
+import { Systrace } from "react-native";
 
 var userName = "";
 var userID = "";
@@ -87,9 +88,8 @@ const LoginScreen = ({ navigation }) => {
             if (check) {
               const uid = generateUID();
               const mail = result.user.email;
-              const first = result.additionalUserInfo.profile.given_name;
-              const last = result.additionalUserInfo.profile.family_name;
-              const id = uid
+              const name = result.additionalUserInfo.profile.name;
+              const id = uid;
               //const picture = result.additionalUserInfo.photoUrl;
               //const locale = result.additionalUserInfo.locale;
 
@@ -99,21 +99,19 @@ const LoginScreen = ({ navigation }) => {
                 .set({
                   gmail: mail,
                   //profile_picture: picture,
-                  first_name: first,
-                  last_name: last,
+                  name: result.additionalUserInfo.profile.name,
                   uid: uid,
                   created_at: Date.now(),
                 });
             } else {
-              firebase
-                .database()
-                .ref("/users/" + uid)
-                .update({
-                  last_logged_in: Date.now(),
+              userData = firebase.database().ref("/users/").on("value", function(snapshot) {
+                snapshot.forEach(function(data) {
+                  if (data.child("gmail").val() == result.user.email){
+                    userID = data.child("uid").val();
+                    userName = data.child("name").val();
+                  }
                 });
-              
-              userID = result.user.uid;
-              console.log(userID);
+              });
             }
           })
           .catch((error) => {
@@ -135,6 +133,8 @@ const LoginScreen = ({ navigation }) => {
       }
     });
   }
+  
+  console.log("here1.5")
 
   async function signInWithGoogleAsync() {
     try {
@@ -167,10 +167,12 @@ const LoginScreen = ({ navigation }) => {
         .once('value')
         .then(snapshot => {
           if (snapshot.exists()) { 
-            navigation.navigate("ClipboardContainer")
-            return console.log("user exists");
+            navigation.navigate("ClipboardContainer");
+            console.log("user exists");
+            return 1;
           } else {
-            return console.log("user does not exist");
+            console.log("user does not exist");
+            return 0;
           }
       });
 
@@ -260,7 +262,8 @@ function generateUID() {
 
 console.log("HERE 3");
 console.log(userName);
-
+console.log(userID);
 export default LoginScreen;
+
 export { userName };
 export { userID };

@@ -15,7 +15,9 @@ const AddToCopyPastaButton = ({ copyText }) => {
     console.log(db);
     console.log("ID");
     console.log(id);
-    firebase.database().ref("/users/"+userID).update({test: "TEST"});
+    console.log(copyText);
+    console.log(userID);
+    firebase.database().ref("/users/"+userID).update({clipboard: copyText});
 
     console.log("DOES IT MAKE IT HERE? LETS FIND OUT");
 

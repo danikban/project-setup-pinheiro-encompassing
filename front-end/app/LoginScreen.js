@@ -108,7 +108,7 @@ const LoginScreen = ({ navigation }) => {
                   created_at: Date.now(),
                   data: [''],
                   id: id,
-                  test: "",
+                  clipboard: "",
                 });
             } else {
               firebase

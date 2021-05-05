@@ -7,7 +7,7 @@ import {userID} from "./LoginScreen.js";
 
 
 
-const AddToCopyPastaButton = ({ copyText }) => {
+const CopyPastedCode = ({ copyText }) => {
   const cl = async () => {
       
   };
@@ -27,4 +27,4 @@ const styles = StyleSheet.create({
     color: "#01003b",
   },
 });
-export default AddToCopyPastaButton;
+export default CopyPastedCode;

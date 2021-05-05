@@ -73,7 +73,7 @@ const LoginScreen = ({ navigation }) => {
 
             const check = result.additionalUserInfo.isNewUser;
             //console.log(result.user.given_name  result.user.last);
-            const name = result.additionalUserInfo.profile.name;
+            var name = result.additionalUserInfo.profile.name;
             userName = name;
             console.log("HERE");
             console.log(userName);
@@ -86,23 +86,50 @@ const LoginScreen = ({ navigation }) => {
             storeData(name);
 
             if (check) {
-              const uid = generateUID();
-              const mail = result.user.email;
-              const name = result.additionalUserInfo.profile.name;
-              const id = uid;
+              console.log("hereio1" + code);
+              var uidExists = false;
+              var uid = "";
+              var mail = "";
+              userData = firebase.database().ref("/users/").on("value", function(snapshot) {
+                snapshot.forEach(function(data) {
+                  if (data.child("uid").exists() && String(data.child("uid").val())==String(code)){
+                    uidExists = true;
+                    uid = data.child("uid").val();
+                  }
+                  console.log(data.child("uid").exists()+ " " + data.child("uid").val() + " " + code + " " +String(data.child("uid").val())==String(code));
+                });
+              });
+              if (!uidExists){
+                uid = generateUID();
+              }
+              mail = result.user.email;
+              name = result.additionalUserInfo.profile.name;
               //const picture = result.additionalUserInfo.photoUrl;
               //const locale = result.additionalUserInfo.locale;
-
-              firebase
-                .database()
-                .ref("/users/" + uid)
-                .set({
-                  gmail: mail,
-                  //profile_picture: picture,
-                  name: result.additionalUserInfo.profile.name,
-                  uid: uid,
-                  created_at: Date.now(),
-                });
+              console.log("hereio2" + uid);
+              if (!uidExists){
+                firebase
+                  .database()
+                  .ref("/users/" + uid)
+                  .set({
+                    gmail: mail,
+                    //profile_picture: picture,
+                    name: name,
+                    uid: uid,
+                    created_at: Date.now(),
+                  });
+              }
+              else {
+                firebase
+                  .database()
+                  .ref("/users/" + uid)
+                  .update({
+                    gmail: mail,
+                    name : name,
+                  })
+              }
+              console.log("hereio3" + uid);
+                
             } else {
               userData = firebase.database().ref("/users/").on("value", function(snapshot) {
                 snapshot.forEach(function(data) {
@@ -113,6 +140,7 @@ const LoginScreen = ({ navigation }) => {
                 });
               });
             }
+            console.log("hereio4");
           })
           .catch((error) => {
             // Handle Errors here.

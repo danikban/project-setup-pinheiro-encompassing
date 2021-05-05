@@ -140,6 +140,7 @@ const LoginScreen = ({ navigation }) => {
                 });
               });
             }
+            navigation.navigate("ClipboardContainer");
             console.log("hereio4");
           })
           .catch((error) => {
@@ -195,6 +196,8 @@ const LoginScreen = ({ navigation }) => {
           }
         });
       });
+      console.log("codeSignInCompleted");
+      navigation.navigate("ClipboardContainer");
     }
     catch (e) {
       return {error: true}

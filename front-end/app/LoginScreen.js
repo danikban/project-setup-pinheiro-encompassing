@@ -187,23 +187,14 @@ const LoginScreen = ({ navigation }) => {
 
   function codeSignIn () {
     try{
-      let rootRef = firebase.database().ref();
-      rootRef
-        .child('users')
-        .orderByChild('uid')
-        .equalTo(LoginScreen.code)
-        .once('value')
-        .then(snapshot => {
-          if (snapshot.exists()) { 
-            navigation.navigate("ClipboardContainer");
-            console.log("user exists");
-            return 1;
-          } else {
-            console.log("user does not exist");
-            return 0;
+      userData = firebase.database().ref("/users/").on("value", function(snapshot) {
+        snapshot.forEach(function(data) {
+          if (data.child("uid").val() == code){
+            userID = data.child("uid").val();
+            userName = data.child("name").val();
           }
+        });
       });
-
     }
     catch (e) {
       return {error: true}
@@ -225,9 +216,9 @@ const LoginScreen = ({ navigation }) => {
       <View style={{ flex: 0.2 }} />
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate("ClipboardContainer")}
+        onPress={codeSignIn}
       >
-        <Text style={styles.buttonText} onPress={codeSignIn}>Login</Text>
+        <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
       <View style={{ flex: 0.1 }} />
       <TouchableOpacity style={styles.button} onPress={signInWithGoogleAsync}>
